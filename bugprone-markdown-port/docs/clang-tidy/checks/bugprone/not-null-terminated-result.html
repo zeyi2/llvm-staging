@@ -89,13 +89,11 @@ then the length of the destination array can be omitted.</p></li>
 <li><p>If the new function is could be safe version and the destination array is
 <code class="docutils literal notranslate"><span class="pre">un/signed</span></code> it needs to be casted to plain <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span></code>/<code class="docutils literal notranslate"><span class="pre">wchar_t</span> <span class="pre">*</span></code>.</p></li>
 </ul>
-<dl class="simple">
-<dt>[1] It is possible to overflow:</dt><dd><ul class="simple">
+<p>[1] It is possible to overflow:</p>
+<ul class="simple">
 <li><p>If the capacity of the destination array is unknown.</p></li>
 <li><p>If the given length is equal to the destination array’s capacity.</p></li>
 </ul>
-</dd>
-</dl>
 </section>
 <section id="rewrite-based-on-the-length-of-the-source-string">
 <h3>Rewrite based on the length of the source string<a class="headerlink" href="#rewrite-based-on-the-length-of-the-source-string" title="Link to this heading">¶</a></h3>
@@ -146,9 +144,9 @@ The given length is incremented by one.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WantToUseSafeFunctions">
 <span class="sig-name descname"><span class="pre">WantToUseSafeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WantToUseSafeFunctions" title="Link to this definition">¶</a></dt>
-<dd><p>The value <cite>true</cite> specifies that the target environment is considered to
+<dd><p>The value <code class="docutils literal notranslate"><span class="pre">true</span></code> specifies that the target environment is considered to
 implement ‘_s’ suffixed memory and string handler functions which are safer
-than older versions (e.g. ‘memcpy_s()’). The default value is <cite>true</cite>.</p>
+than older versions (e.g. ‘memcpy_s()’). The default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 </section>

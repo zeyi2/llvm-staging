@@ -57,15 +57,13 @@ to the new object. Most of the time, people will believe that the captured
 <span class="p">}</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>Possible fixes:</dt><dd><ul class="simple">
+<p>Possible fixes:</p>
+<ul class="simple">
 <li><p>marking copy and move constructors and assignment operators deleted.</p></li>
 <li><p>using class member method instead of class member variable with function
 object types.</p></li>
 <li><p>passing <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer as parameter.</p></li>
 </ul>
-</dd>
-</dl>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
 <dl class="std option">
@@ -73,7 +71,7 @@ object types.</p></li>
 <span class="sig-name descname"><span class="pre">FunctionWrapperTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-FunctionWrapperTypes" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of names of types. Used to specify function
 wrapper that can hold lambda expressions.
-Default is <cite>::std::function;::std::move_only_function;::boost::function</cite>.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">::std::function;::std::move_only_function;::boost::function</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -81,8 +79,7 @@ Default is <cite>::std::function;::std::move_only_function;::boost::function</ci
 <span class="sig-name descname"><span class="pre">BindFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-BindFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of fully qualified names of functions that can
 capture <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.
-Default is <cite>::std::bind;::boost::bind;::std::bind_front;::std::bind_back;
-::boost::compat::bind_front;::boost::compat::bind_back</cite>.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">::std::bind;::boost::bind;::std::bind_front;::std::bind_back;</span> <span class="pre">\::boost::compat::bind_front;::boost::compat::bind_back</span></code>.</p>
 </dd></dl>
 
 </section>

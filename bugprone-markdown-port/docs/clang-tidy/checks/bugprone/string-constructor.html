@@ -71,23 +71,23 @@ cause <code class="docutils literal notranslate"><span class="pre">std::out_of_r
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnLargeLength">
 <span class="sig-name descname"><span class="pre">WarnOnLargeLength</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnLargeLength" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on a string with a length greater than
-<a class="reference internal" href="#cmdoption-arg-LargeLengthThreshold"><code class="xref std std-option docutils literal notranslate"><span class="pre">LargeLengthThreshold</span></code></a>. Default is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on a string with a length greater than
+<a class="reference internal" href="#cmdoption-arg-LargeLengthThreshold"><code class="xref std std-option docutils literal notranslate"><span class="pre">LargeLengthThreshold</span></code></a>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-LargeLengthThreshold">
 <span class="sig-name descname"><span class="pre">LargeLengthThreshold</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-LargeLengthThreshold" title="Link to this definition">¶</a></dt>
-<dd><p>An integer specifying the large length threshold. Default is <cite>0x800000</cite>.</p>
+<dd><p>An integer specifying the large length threshold. Default is <code class="docutils literal notranslate"><span class="pre">0x800000</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-StringNames">
 <span class="sig-name descname"><span class="pre">StringNames</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StringNames" title="Link to this definition">¶</a></dt>
-<dd><p>Default is <cite>::std::basic_string;::std::basic_string_view</cite>.</p>
+<dd><p>Default is <code class="docutils literal notranslate"><span class="pre">::std::basic_string;::std::basic_string_view</span></code>.</p>
 <p>Semicolon-delimited list of class names to apply this check to.
-By default <cite>::std::basic_string</cite> applies to <code class="docutils literal notranslate"><span class="pre">std::string</span></code> and
-<code class="docutils literal notranslate"><span class="pre">std::wstring</span></code>. Set to e.g. <cite>::std::basic_string;llvm::StringRef;QString</cite>
+By default <code class="docutils literal notranslate"><span class="pre">::std::basic_string</span></code> applies to <code class="docutils literal notranslate"><span class="pre">std::string</span></code> and
+<code class="docutils literal notranslate"><span class="pre">std::wstring</span></code>. Set to e.g. <code class="docutils literal notranslate"><span class="pre">::std::basic_string;llvm::StringRef;QString</span></code>
 to perform this check on custom classes.</p>
 </dd></dl>
 

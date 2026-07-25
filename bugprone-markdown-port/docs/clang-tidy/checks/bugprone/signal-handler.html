@@ -73,15 +73,12 @@ It has the alias names <code class="docutils literal notranslate"><span class="p
 <dd><p>Selects which set of functions is considered as asynchronous-safe
 (and therefore allowed in signal handlers). It can be set to the following values:</p>
 <ul>
-<li><dl class="simple">
-<dt><cite>minimal</cite></dt><dd><p>Selects a minimal set that is defined in the CERT SIG30-C rule.
+<li><p><code class="docutils literal notranslate"><span class="pre">minimal</span></code>
+: Selects a minimal set that is defined in the CERT SIG30-C rule.
 and includes functions <code class="docutils literal notranslate"><span class="pre">abort()</span></code>, <code class="docutils literal notranslate"><span class="pre">_Exit()</span></code>, <code class="docutils literal notranslate"><span class="pre">quick_exit()</span></code> and
-<code class="docutils literal notranslate"><span class="pre">signal()</span></code>.</p>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt><cite>POSIX</cite></dt><dd><p>Selects a larger set of functions that is listed in POSIX.1-2017 (see <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/V2_chap02.html#tag_15_04_03">this
+<code class="docutils literal notranslate"><span class="pre">signal()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POSIX</span></code>
+: Selects a larger set of functions that is listed in POSIX.1-2017 (see <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/V2_chap02.html#tag_15_04_03">this
 link</a>
 for more information). The following functions are included:
 <code class="docutils literal notranslate"><span class="pre">_Exit</span></code>, <code class="docutils literal notranslate"><span class="pre">_exit</span></code>, <code class="docutils literal notranslate"><span class="pre">abort</span></code>, <code class="docutils literal notranslate"><span class="pre">accept</span></code>, <code class="docutils literal notranslate"><span class="pre">access</span></code>, <code class="docutils literal notranslate"><span class="pre">aio_error</span></code>,
@@ -122,11 +119,9 @@ for more information). The following functions are included:
 <code class="docutils literal notranslate"><span class="pre">wmemcpy</span></code>, <code class="docutils literal notranslate"><span class="pre">wmemmove</span></code>, <code class="docutils literal notranslate"><span class="pre">wmemset</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code></p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">quick_exit</span></code> is not included in the POSIX list but it
 is included here in the set of safe functions.</p>
-</dd>
-</dl>
 </li>
 </ul>
-<p>The default value is <cite>POSIX</cite>.</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">POSIX</span></code>.</p>
 </dd></dl>
 
 </section>

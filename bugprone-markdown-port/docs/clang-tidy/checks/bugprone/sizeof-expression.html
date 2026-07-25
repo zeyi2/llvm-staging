@@ -273,68 +273,68 @@ importantly, <code class="docutils literal notranslate"><span class="pre">char</
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfConstant">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfConstant</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfConstant" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on an expression like
-<code class="docutils literal notranslate"><span class="pre">sizeof(CONSTANT)</span></code>. Default is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on an expression like
+<code class="docutils literal notranslate"><span class="pre">sizeof(CONSTANT)</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfIntegerExpression">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfIntegerExpression</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfIntegerExpression" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on an expression like <code class="docutils literal notranslate"><span class="pre">sizeof(expr)</span></code>
-where the expression results in an integer. Default is <cite>false</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on an expression like <code class="docutils literal notranslate"><span class="pre">sizeof(expr)</span></code>
+where the expression results in an integer. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfThis">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfThis</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfThis" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on an expression like <code class="docutils literal notranslate"><span class="pre">sizeof(this)</span></code>.
-Default is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on an expression like <code class="docutils literal notranslate"><span class="pre">sizeof(this)</span></code>.
+Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfCompareToConstant">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfCompareToConstant</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfCompareToConstant" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on an expression like
-<code class="docutils literal notranslate"><span class="pre">sizeof(expr)</span> <span class="pre">&lt;=</span> <span class="pre">k</span></code> for a suspicious constant <cite>k</cite> while <cite>k</cite> is <cite>0</cite> or
-greater than <cite>0x8000</cite>. Default is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on an expression like
+<code class="docutils literal notranslate"><span class="pre">sizeof(expr)</span> <span class="pre">&lt;=</span> <span class="pre">k</span></code> for a suspicious constant <code class="docutils literal notranslate"><span class="pre">k</span></code> while <code class="docutils literal notranslate"><span class="pre">k</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> or
+greater than <code class="docutils literal notranslate"><span class="pre">0x8000</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfPointerToAggregate">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfPointerToAggregate</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfPointerToAggregate" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn when the argument of <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> is either a
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn when the argument of <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> is either a
 pointer-to-aggregate type, an expression returning a pointer-to-aggregate
 value or an expression that returns a pointer from an array-to-pointer
 conversion (that may be implicit or explicit, for example <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">+</span> <span class="pre">2</span></code> or
-<code class="docutils literal notranslate"><span class="pre">(int</span> <span class="pre">*)array</span></code>). Default is <cite>true</cite>.</p>
+<code class="docutils literal notranslate"><span class="pre">(int</span> <span class="pre">*)array</span></code>). Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfPointer">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfPointer</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfPointer" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will report all expressions where the argument of
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will report all expressions where the argument of
 <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> is an expression that produces a pointer (except for a few
 idiomatic expressions that are probably intentional and correct).
-This detects occurrences of CWE 467. Default is <cite>false</cite>.</p>
+This detects occurrences of CWE 467. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnOffsetDividedBySizeOf">
 <span class="sig-name descname"><span class="pre">WarnOnOffsetDividedBySizeOf</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnOffsetDividedBySizeOf" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn on pointer arithmetic where the
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on pointer arithmetic where the
 element count is obtained from a division with <code class="docutils literal notranslate"><span class="pre">sizeof(...)</span></code>,
-e.g., <code class="docutils literal notranslate"><span class="pre">Ptr</span> <span class="pre">+</span> <span class="pre">Bytes</span> <span class="pre">/</span> <span class="pre">sizeof(*T)</span></code>. Default is <cite>true</cite>.</p>
+e.g., <code class="docutils literal notranslate"><span class="pre">Ptr</span> <span class="pre">+</span> <span class="pre">Bytes</span> <span class="pre">/</span> <span class="pre">sizeof(*T)</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnSizeOfInLoopTermination">
 <span class="sig-name descname"><span class="pre">WarnOnSizeOfInLoopTermination</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSizeOfInLoopTermination" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check will warn about incorrect use of sizeof expression
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn about incorrect use of sizeof expression
 in loop termination condition. The warning triggers if the <code class="docutils literal notranslate"><span class="pre">sizeof</span></code>
 expression appears to be incorrectly used to determine the number of
 array/buffer elements.
 e.g, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">arr[10];</span> <span class="pre">for(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">sizeof(arr);</span> <span class="pre">i++)</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>. Default
-is <cite>true</cite>.</p>
+is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 </section>

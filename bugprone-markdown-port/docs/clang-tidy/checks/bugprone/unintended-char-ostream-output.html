@@ -76,13 +76,13 @@ explicit cast expressions to these types. Note that this distinguishes type
 aliases from the original type, so specifying e.g. <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code> here
 will not suppress reports about <code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> even if it is defined as a
 <code class="docutils literal notranslate"><span class="pre">typedef</span></code> alias for <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>.
-Default is <cite>unsigned char;signed char</cite>.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char;signed</span> <span class="pre">char</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CastTypeName">
 <span class="sig-name descname"><span class="pre">CastTypeName</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CastTypeName" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>CastTypeName</cite> is specified, the fix-it will use <cite>CastTypeName</cite> as the
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">CastTypeName</span></code> is specified, the fix-it will use <code class="docutils literal notranslate"><span class="pre">CastTypeName</span></code> as the
 cast target type. Otherwise, fix-it will automatically infer the type.</p>
 </dd></dl>
 

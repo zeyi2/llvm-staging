@@ -102,7 +102,7 @@ enum constant or tracks how many enum constants have been declared.</p>
 <p>The check counts the number of distinct values among the enum constants and not
 the enum constants themselves. This way the enum constants that are essentially
 just aliases of other enum constants are not included in the final count.</p>
-<p>Handling of counting enum constants (ones like <code class="code docutils literal notranslate"><span class="pre">TagCount</span></code> in the previous
+<p>Handling of counting enum constants (ones like <code class="docutils literal notranslate"><span class="pre">TagCount</span></code> in the previous
 code example) is done by decreasing the number of enum values by one if the name
 of the last enum constant starts with a prefix or ends with a suffix specified in
 <a class="reference internal" href="#cmdoption-arg-CountingEnumPrefixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumPrefixes</span></code></a>, <a class="reference internal" href="#cmdoption-arg-CountingEnumSuffixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumSuffixes</span></code></a> and it’s value is

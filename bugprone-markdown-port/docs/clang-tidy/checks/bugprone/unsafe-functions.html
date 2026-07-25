@@ -41,13 +41,11 @@
 are considered deprecated due to design flaws.
 The check heavily relies on the functions from the
 <strong>Annex K.</strong> “Bounds-checking interfaces” of C11.</p>
-<dl class="simple">
-<dt>The check implements the following rules from the CERT C Coding Standard:</dt><dd><ul class="simple">
+<p>The check implements the following rules from the CERT C Coding Standard:</p>
+<ul class="simple">
 <li><p>Recommendation <a class="reference external" href="https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/miscellaneous-msc/msc24-c/">MSC24-C. Do not use deprecated or obsolescent functions</a>.</p></li>
 <li><p>Rule <a class="reference external" href="https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/miscellaneous-msc/msc33-c/">MSC33-C. Do not pass invalid data to the asctime() function</a>.</p></li>
 </ul>
-</dd>
-</dl>
 <p><code class="docutils literal notranslate"><span class="pre">cert-msc24-c</span></code> and <code class="docutils literal notranslate"><span class="pre">cert-msc33-c</span></code> redirect
 here as aliases of this check.</p>
 <section id="unsafe-functions">
@@ -185,20 +183,20 @@ parameters, but does not match nested template classes.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-ReportMoreUnsafeFunctions">
 <span class="sig-name descname"><span class="pre">ReportMoreUnsafeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReportMoreUnsafeFunctions" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, additional functions from widely used APIs (such as POSIX) are
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, additional functions from widely used APIs (such as POSIX) are
 added to the list of reported functions.
 See the main documentation of the check for the complete list as to what
 this option enables.
-Default is <cite>true</cite>.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-ReportDefaultFunctions">
 <span class="sig-name descname"><span class="pre">ReportDefaultFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReportDefaultFunctions" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the check reports the default set of functions.
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check reports the default set of functions.
 Consider changing the setting to false if you only want to see custom
 functions matched via <a class="reference internal" href="#customfunctions"><span class="std std-ref">custom functions</span></a>.
-Default is <cite>true</cite>.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">

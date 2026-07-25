@@ -74,10 +74,10 @@ report longer mixable ranges.</p>
 <dd><p>Whether to consider parameters of some <em>cvr-qualified</em> <code class="docutils literal notranslate"><span class="pre">T</span></code> and a
 differently <em>cvr-qualified</em> <code class="docutils literal notranslate"><span class="pre">T</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">T</span></code>
 and <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">T</span></code>, etc.) mixable between one another.
-If <cite>false</cite>, the check will consider differently qualified types unmixable.
-<cite>True</cite> turns the warnings on.
-Defaults to <cite>false</cite>.</p>
-<p>The following example produces a diagnostic only if <cite>QualifiersMix</cite> is
+If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the check will consider differently qualified types unmixable.
+<code class="docutils literal notranslate"><span class="pre">True</span></code> turns the warnings on.
+Defaults to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>The following example produces a diagnostic only if <code class="docutils literal notranslate"><span class="pre">QualifiersMix</span></code> is
 enabled:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">Destination</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">Source</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
@@ -89,12 +89,12 @@ enabled:</p>
 <span class="sig-name descname"><span class="pre">ModelImplicitConversions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ModelImplicitConversions" title="Link to this definition">¶</a></dt>
 <dd><p>Whether to consider parameters of type <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code> mixable if there
 exists an implicit conversion from <code class="docutils literal notranslate"><span class="pre">T</span></code> to <code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code> to <code class="docutils literal notranslate"><span class="pre">T</span></code>.
-If <cite>false</cite>, the check will not consider implicitly convertible types for
+If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the check will not consider implicitly convertible types for
 mixability.
-<cite>True</cite> turns warnings for implicit conversions on.
-Defaults to <cite>true</cite>.</p>
+<code class="docutils literal notranslate"><span class="pre">True</span></code> turns warnings for implicit conversions on.
+Defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>The following examples produce a diagnostic only if
-<cite>ModelImplicitConversions</cite> is enabled:</p>
+<code class="docutils literal notranslate"><span class="pre">ModelImplicitConversions</span></code> is enabled:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">CharBuf</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
@@ -105,10 +105,10 @@ Defaults to <cite>true</cite>.</p>
 <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int</span></code>) is defined as an <em>implicit conversion</em> in the C++
 Standard.
 However, the check separates this decision-making on the mixability of
-differently qualified types based on whether <cite>QualifiersMix</cite> was
+differently qualified types based on whether <code class="docutils literal notranslate"><span class="pre">QualifiersMix</span></code> was
 enabled.</p>
 <p>For example, the following code snippet will only produce a diagnostic
-if <strong>both</strong> <cite>QualifiersMix</cite> and <cite>ModelImplicitConversions</cite> are enabled:</p>
+if <strong>both</strong> <code class="docutils literal notranslate"><span class="pre">QualifiersMix</span></code> and <code class="docutils literal notranslate"><span class="pre">ModelImplicitConversions</span></code> are enabled:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">fun2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
@@ -126,10 +126,10 @@ noisiness.</p>
 <span class="sig-name descname"><span class="pre">MinimumLength</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-MinimumLength" title="Link to this definition">¶</a></dt>
 <dd><p>The minimum length required from an adjacent parameter sequence to be
 diagnosed.
-Defaults to <cite>2</cite>.
-Might be any positive integer greater or equal to <cite>2</cite>.
-If <cite>0</cite> or <cite>1</cite> is given, the default value <cite>2</cite> will be used instead.</p>
-<p>For example, if <cite>3</cite> is specified, the examples above will not be matched.</p>
+Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.
+Might be any positive integer greater or equal to <code class="docutils literal notranslate"><span class="pre">2</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code> is given, the default value <code class="docutils literal notranslate"><span class="pre">2</span></code> will be used instead.</p>
+<p>For example, if <code class="docutils literal notranslate"><span class="pre">3</span></code> is specified, the examples above will not be matched.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -137,14 +137,14 @@ If <cite>0</cite> or <cite>1</cite> is given, the default value <cite>2</cite> w
 <span class="sig-name descname"><span class="pre">IgnoredParameterNames</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoredParameterNames" title="Link to this definition">¶</a></dt>
 <dd><p>The list of parameter <strong>names</strong> that should never be considered part of a
 swappable adjacent parameter sequence.
-The value is a <cite>;</cite>-separated list of names.
-To ignore unnamed parameters, add <cite>“”</cite> to the list verbatim (not the
+The value is a <code class="docutils literal notranslate"><span class="pre">;</span></code>-separated list of names.
+To ignore unnamed parameters, add <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> to the list verbatim (not the
 empty string, but the two quotes, potentially escaped!).
 <strong>This option is case-sensitive!</strong></p>
 <p>By default, the following parameter names, and their Uppercase-initial
 variants are ignored:
-<cite>“”</cite> (unnamed parameters), <cite>iterator</cite>, <cite>begin</cite>, <cite>end</cite>, <cite>first</cite>, <cite>last</cite>,
-<cite>lhs</cite>, <cite>rhs</cite>.</p>
+<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> (unnamed parameters), <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">first</span></code>, <code class="docutils literal notranslate"><span class="pre">last</span></code>,
+<code class="docutils literal notranslate"><span class="pre">lhs</span></code>, <code class="docutils literal notranslate"><span class="pre">rhs</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -154,15 +154,15 @@ variants are ignored:
 considered part of a swappable adjacent parameter sequence.
 Parameters which type, as written in the source code, end with an element
 of this option will be ignored.
-The value is a <cite>;</cite>-separated list of names.
+The value is a <code class="docutils literal notranslate"><span class="pre">;</span></code>-separated list of names.
 <strong>This option is case-sensitive!</strong></p>
 <p>By default, the following, and their lowercase-initial variants are ignored:
-<cite>bool</cite>, <cite>It</cite>, <cite>Iterator</cite>, <cite>InputIt</cite>, <cite>ForwardIt</cite>, <cite>BidirIt</cite>, <cite>RandomIt</cite>,
-<cite>random_iterator</cite>, <cite>ReverseIt</cite>, <cite>reverse_iterator</cite>,
-<cite>reverse_const_iterator</cite>, <cite>RandomIt</cite>, <cite>random_iterator</cite>, <cite>ReverseIt</cite>,
-<cite>reverse_iterator</cite>, <cite>reverse_const_iterator</cite>, <cite>Const_Iterator</cite>,
-<cite>ConstIterator</cite>, <cite>const_reverse_iterator</cite>, <cite>ConstReverseIterator</cite>.
-In addition, <cite>_Bool</cite> (but not <cite>_bool</cite>) is also part of the default value.</p>
+<code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">It</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">InputIt</span></code>, <code class="docutils literal notranslate"><span class="pre">ForwardIt</span></code>, <code class="docutils literal notranslate"><span class="pre">BidirIt</span></code>, <code class="docutils literal notranslate"><span class="pre">RandomIt</span></code>,
+<code class="docutils literal notranslate"><span class="pre">random_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">ReverseIt</span></code>, <code class="docutils literal notranslate"><span class="pre">reverse_iterator</span></code>,
+<code class="docutils literal notranslate"><span class="pre">reverse_const_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">RandomIt</span></code>, <code class="docutils literal notranslate"><span class="pre">random_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">ReverseIt</span></code>,
+<code class="docutils literal notranslate"><span class="pre">reverse_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">reverse_const_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">Const_Iterator</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ConstIterator</span></code>, <code class="docutils literal notranslate"><span class="pre">const_reverse_iterator</span></code>, <code class="docutils literal notranslate"><span class="pre">ConstReverseIterator</span></code>.
+In addition, <code class="docutils literal notranslate"><span class="pre">_Bool</span></code> (but not <code class="docutils literal notranslate"><span class="pre">_bool</span></code>) is also part of the default value.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -170,8 +170,8 @@ In addition, <cite>_Bool</cite> (but not <cite>_bool</cite>) is also part of the
 <span class="sig-name descname"><span class="pre">SuppressParametersUsedTogether</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-SuppressParametersUsedTogether" title="Link to this definition">¶</a></dt>
 <dd><p>Suppresses diagnostics about parameters that are used together or in a
 similar fashion inside the function’s body.
-Defaults to <cite>true</cite>.
-Specifying <cite>false</cite> will turn off the heuristics.</p>
+Defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code>.
+Specifying <code class="docutils literal notranslate"><span class="pre">false</span></code> will turn off the heuristics.</p>
 <p>Currently, the following heuristics are implemented which will suppress the
 warning about the parameter pair involved:</p>
 <ul>
@@ -202,9 +202,9 @@ different code paths.</p></li>
 <dd><p>The number of characters two parameter names might be different on <em>either</em>
 the head or the tail end with the rest of the name the same so that the
 warning about the two parameters are silenced.
-Defaults to <cite>1</cite>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
 Might be any positive integer.
-If <cite>0</cite>, the filtering heuristic based on the parameters’ names is turned
+If <code class="docutils literal notranslate"><span class="pre">0</span></code>, the filtering heuristic based on the parameters’ names is turned
 off.</p>
 <p>This option can be used to silence warnings about parameters where the
 naming scheme indicates that the order of those parameters do not matter.</p>
@@ -213,7 +213,7 @@ of each other: <code class="docutils literal notranslate"><span class="pre">L</s
 is the common suffix.
 Similarly, parameters <code class="docutils literal notranslate"><span class="pre">text1,</span> <span class="pre">text2,</span> <span class="pre">text3</span></code> are 1-dissimilar prefixes
 of each other, with the numbers at the end being the dissimilar part.
-If the value is at least <cite>1</cite>, such cases will not be reported.</p>
+If the value is at least <code class="docutils literal notranslate"><span class="pre">1</span></code>, such cases will not be reported.</p>
 </dd></dl>
 
 </section>

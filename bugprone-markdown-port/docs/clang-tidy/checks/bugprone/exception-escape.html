@@ -71,36 +71,36 @@ used.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CheckDestructors">
 <span class="sig-name descname"><span class="pre">CheckDestructors</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckDestructors" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, destructors are analyzed to not throw exceptions.
-Default value is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, destructors are analyzed to not throw exceptions.
+Default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CheckMoveMemberFunctions">
 <span class="sig-name descname"><span class="pre">CheckMoveMemberFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckMoveMemberFunctions" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, move constructors and move assignment operators are analyzed
-to not throw exceptions. Default value is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, move constructors and move assignment operators are analyzed
+to not throw exceptions. Default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CheckMain">
 <span class="sig-name descname"><span class="pre">CheckMain</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckMain" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is analyzed to not throw exceptions.
-Default value is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is analyzed to not throw exceptions.
+Default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CheckNothrowFunctions">
 <span class="sig-name descname"><span class="pre">CheckNothrowFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckNothrowFunctions" title="Link to this definition">¶</a></dt>
-<dd><p>When <cite>true</cite>, functions marked with <code class="docutils literal notranslate"><span class="pre">noexcept</span></code> or <code class="docutils literal notranslate"><span class="pre">throw()</span></code> exception
-specifications are analyzed to not throw exceptions. Default value is <cite>true</cite>.</p>
+<dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, functions marked with <code class="docutils literal notranslate"><span class="pre">noexcept</span></code> or <code class="docutils literal notranslate"><span class="pre">throw()</span></code> exception
+specifications are analyzed to not throw exceptions. Default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-CheckedSwapFunctions">
 <span class="sig-name descname"><span class="pre">CheckedSwapFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckedSwapFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>Comma-separated list of swap function names which should not throw exceptions.
-Default value is <cite>swap,iter_swap,iter_move</cite>.</p>
+Default value is <code class="docutils literal notranslate"><span class="pre">swap,iter_swap,iter_move</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -125,28 +125,19 @@ exceptions in the check. Default value is an empty string.</p>
 <dd><p>Determines which functions are considered as throwing if they do not have
 an explicit exception specification. It can be set to the following values:</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt><cite>None</cite></dt><dd><p>The check will consider functions without an explicit exception
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
+: The check will consider functions without an explicit exception
 specification as throwing only if they have a visible definition which
-can be deduced to throw.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><cite>OnlyUndefined</cite></dt><dd><p>The check will consider functions with only a declaration available and
-no visible definition as throwing.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><cite>All</cite></dt><dd><p>The check will consider all functions without an explicit exception
+can be deduced to throw.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OnlyUndefined</span></code>
+: The check will consider functions with only a declaration available and
+no visible definition as throwing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">All</span></code>
+: The check will consider all functions without an explicit exception
 specification (such as <code class="docutils literal notranslate"><span class="pre">noexcept</span></code>) as throwing, even if they have a
-visible definition and do not contain any throwing statements.</p>
-</dd>
-</dl>
-</li>
+visible definition and do not contain any throwing statements.</p></li>
 </ul>
-<p>Default value is <cite>None</cite>.</p>
+<p>Default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
 </section>
