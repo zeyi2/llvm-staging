@@ -53,7 +53,7 @@ cause loss of precision through:</p>
 <ul class="simple">
 <li><p>Truncation: The following code uses a floating point range and an int
 initial value, so truncation will happen at every application of
-<code class="docutils literal notranslate"><span class="pre">operator+</span></code> and the result will be <cite>0</cite>, which might not be what the
+<code class="docutils literal notranslate"><span class="pre">operator+</span></code> and the result will be <code class="docutils literal notranslate"><span class="pre">0</span></code>, which might not be what the
 user expected.</p></li>
 </ul>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">};</span>
@@ -61,7 +61,7 @@ user expected.</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Overflow: The following code also returns <cite>0</cite>.</p></li>
+<li><p>Overflow: The following code also returns <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">65536L</span><span class="n">L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">65536</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">65536</span><span class="p">};</span>
 <span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>

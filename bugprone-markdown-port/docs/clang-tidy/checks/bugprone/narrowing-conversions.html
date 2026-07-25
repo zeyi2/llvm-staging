@@ -37,7 +37,7 @@
         
   <section id="bugprone-narrowing-conversions">
 <h1>bugprone-narrowing-conversions<a class="headerlink" href="#bugprone-narrowing-conversions" title="Link to this heading">¶</a></h1>
-<p><cite>cppcoreguidelines-narrowing-conversions</cite> redirects here as an alias for
+<p><code class="docutils literal notranslate"><span class="pre">cppcoreguidelines-narrowing-conversions</span></code> redirects here as an alias for
 this check.</p>
 <p>Checks for silent narrowing conversions, e.g: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">+=</span> <span class="pre">0.1;</span></code>. While
 the issue is obvious in this former example, it might not be so in the
@@ -65,7 +65,7 @@ For example: <code class="docutils literal notranslate"><span class="pre">int</s
 <p>Arithmetic with smaller integer types than <code class="docutils literal notranslate"><span class="pre">int</span></code> trigger implicit conversions,
 as explained under <a class="reference external" href="https://en.cppreference.com/w/cpp/language/implicit_conversion">“Integral Promotion” on cppreference.com</a>.
 This check diagnoses more instances of narrowing than the compiler warning
-<cite>-Wconversion</cite> does. The example below demonstrates this behavior.</p>
+<code class="docutils literal notranslate"><span class="pre">-Wconversion</span></code> does. The example below demonstrates this behavior.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// The following function definition demonstrates usage of arithmetic with</span>
 <span class="c1">// integer types smaller than `int` and how the narrowing conversion happens</span>
 <span class="c1">// implicitly.</span>

@@ -41,12 +41,12 @@
 <code class="docutils literal notranslate"><span class="pre">strnlen()</span></code>, <code class="docutils literal notranslate"><span class="pre">strnlen_s()</span></code>, <code class="docutils literal notranslate"><span class="pre">wcslen()</span></code>, <code class="docutils literal notranslate"><span class="pre">wcsnlen()</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">wcsnlen_s()</span></code> instead of the result and the value is used as an argument to a
 memory allocation function (<code class="docutils literal notranslate"><span class="pre">malloc()</span></code>, <code class="docutils literal notranslate"><span class="pre">calloc()</span></code>, <code class="docutils literal notranslate"><span class="pre">realloc()</span></code>,
-<code class="docutils literal notranslate"><span class="pre">alloca()</span></code>) or the <code class="docutils literal notranslate"><span class="pre">new[]</span></code> operator in <cite>C++</cite>. The check detects error cases
+<code class="docutils literal notranslate"><span class="pre">alloca()</span></code>) or the <code class="docutils literal notranslate"><span class="pre">new[]</span></code> operator in <code class="docutils literal notranslate"><span class="pre">C++</span></code>. The check detects error cases
 even if one of these functions (except the <code class="docutils literal notranslate"><span class="pre">new[]</span></code> operator) is called by a
 constant function pointer. Cases where <code class="docutils literal notranslate"><span class="pre">1</span></code> is added both to the parameter and
 the result of the <code class="docutils literal notranslate"><span class="pre">strlen()</span></code>-like function are ignored, as are cases where
 the whole addition is surrounded by extra parentheses.</p>
-<p><cite>C</cite> example code:</p>
+<p><code class="docutils literal notranslate"><span class="pre">C</span></code> example code:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">bad_malloc</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
 <span class="p">}</span>
@@ -57,13 +57,13 @@ to its argument. In the example above the fix would be</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><cite>C++</cite> example code:</p>
+<p><code class="docutils literal notranslate"><span class="pre">C++</span></code> example code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">bad_new</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)];</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As in the <cite>C</cite> code with the <code class="docutils literal notranslate"><span class="pre">malloc()</span></code> function, the suggested fix is to
+<p>As in the <code class="docutils literal notranslate"><span class="pre">C</span></code> code with the <code class="docutils literal notranslate"><span class="pre">malloc()</span></code> function, the suggested fix is to
 add <code class="docutils literal notranslate"><span class="pre">1</span></code> to the return value of <code class="docutils literal notranslate"><span class="pre">strlen()</span></code> and not to its argument. In the
 example above the fix would be</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>

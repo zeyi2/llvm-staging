@@ -48,7 +48,7 @@ The check heavily relies on the functions from the
 </ul>
 </dd>
 </dl>
-<p><cite>cert-msc24-c</cite> and <cite>cert-msc33-c</cite> redirect
+<p><code class="docutils literal notranslate"><span class="pre">cert-msc24-c</span></code> and <code class="docutils literal notranslate"><span class="pre">cert-msc33-c</span></code> redirect
 here as aliases of this check.</p>
 <section id="unsafe-functions">
 <h2>Unsafe functions<a class="headerlink" href="#unsafe-functions" title="Link to this heading">¶</a></h2>
@@ -128,18 +128,18 @@ to be checked. The format is the following, without newlines:</p>
 </div>
 <p>The functions are matched using POSIX extended regular expressions.
 <em>(Note: The regular expressions do not support negative</em> <code class="docutils literal notranslate"><span class="pre">(?!)</span></code> <em>matches.)</em></p>
-<p>The <cite>reason</cite> is optional and is used to provide additional information about
+<p>The <code class="docutils literal notranslate"><span class="pre">reason</span></code> is optional and is used to provide additional information about
 the reasoning behind the replacement. The default reason is
-<cite>is marked as unsafe</cite>.</p>
-<p>If <cite>replacement</cite> is empty, the default text
-<cite>it should not be used</cite> will be
+<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">marked</span> <span class="pre">as</span> <span class="pre">unsafe</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">replacement</span></code> is empty, the default text
+<code class="docutils literal notranslate"><span class="pre">it</span> <span class="pre">should</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">used</span></code> will be
 shown instead of the suggestion for a replacement.</p>
-<p>If the <cite>reason</cite> starts with the character
-<cite>&gt;</cite>, the reason becomes fully
+<p>If the <code class="docutils literal notranslate"><span class="pre">reason</span></code> starts with the character
+<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, the reason becomes fully
 custom. The default suffix is disabled even if a
-<cite>replacement</cite> is present,
+<code class="docutils literal notranslate"><span class="pre">replacement</span></code> is present,
 and only the reason message is shown after the matched function, to allow
-better control over the suggestions. (The starting <cite>&gt;</cite> and whitespace
+better control over the suggestions. (The starting <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and whitespace
 directly after it are trimmed from the message.)</p>
 <p>As an example, the following configuration matches only the function
 <code class="docutils literal notranslate"><span class="pre">original</span></code> in the default namespace. A similar diagnostic can also be printed
@@ -154,10 +154,10 @@ using a fully custom reason.</p>
 <span class="n">original_function</span><span class="p">();</span><span class="w"> </span><span class="c1">// no-warning</span>
 </pre></div>
 </div>
-<p>If the regular expression contains the character <cite>:</cite>, it is matched against
+<p>If the regular expression contains the character <code class="docutils literal notranslate"><span class="pre">:</span></code>, it is matched against
 the qualified name (i.e. <code class="docutils literal notranslate"><span class="pre">std::original</span></code>), otherwise the regex is matched
 against the unqualified name (<code class="docutils literal notranslate"><span class="pre">original</span></code>). If the regular expression starts
-with <cite>::</cite> (or <cite>^::</cite>), it is matched against the fully qualified name
+with <code class="docutils literal notranslate"><span class="pre">::</span></code> (or <code class="docutils literal notranslate"><span class="pre">^::</span></code>), it is matched against the fully qualified name
 (<code class="docutils literal notranslate"><span class="pre">::std::original</span></code>).</p>
 <p>One of the use cases for fully custom messages is suggesting compiler options
 and warning flags:</p>

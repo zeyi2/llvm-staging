@@ -37,9 +37,9 @@
         
   <section id="bugprone-signed-char-misuse">
 <h1>bugprone-signed-char-misuse<a class="headerlink" href="#bugprone-signed-char-misuse" title="Link to this heading">¶</a></h1>
-<p><cite>cert-str34-c</cite> redirects here as an alias for this check. For
-the CERT alias, the <cite>DiagnoseSignedUnsignedCharComparisons</cite>
-option is set to <cite>false</cite>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cert-str34-c</span></code> redirects here as an alias for this check. For
+the CERT alias, the <code class="docutils literal notranslate"><span class="pre">DiagnoseSignedUnsignedCharComparisons</span></code>
+option is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>Finds those <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code> -&gt; integer conversions which might indicate a
 programming error. The basic problem with the <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code>, that it might
 store the non-ASCII characters as negative values. This behavior can cause a

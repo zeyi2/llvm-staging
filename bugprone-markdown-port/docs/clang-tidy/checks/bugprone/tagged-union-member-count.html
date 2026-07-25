@@ -145,7 +145,7 @@ It uses the prefixes and suffixes specified in the options
 <a class="reference internal" href="#cmdoption-arg-CountingEnumPrefixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumPrefixes</span></code></a>, <a class="reference internal" href="#cmdoption-arg-CountingEnumSuffixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumSuffixes</span></code></a> to find counting enum constants by
 using them for prefix and suffix matching.</p>
 <p>This option is enabled by default.</p>
-<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <cite>false</cite>:</p>
+<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">TagWithCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Tag1</span><span class="p">,</span>
 <span class="w">  </span><span class="n">Tag2</span><span class="p">,</span>
@@ -164,7 +164,7 @@ using them for prefix and suffix matching.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <cite>true</cite>:</p>
+<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">TagWithCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Tag1</span><span class="p">,</span>
 <span class="w">  </span><span class="n">Tag2</span><span class="p">,</span>
@@ -198,13 +198,13 @@ using them for prefix and suffix matching.</p>
 separated strings that are used to search for possible counting enum constants.
 These strings are matched case insensitively as prefixes and suffixes
 respectively on the names of the enum constants.
-If <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <cite>false</cite> then these
+If <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <code class="docutils literal notranslate"><span class="pre">false</span></code> then these
 options do nothing.</p>
 <p>The default value of <a class="reference internal" href="#cmdoption-arg-CountingEnumSuffixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumSuffixes</span></code></a> is
-<cite>count</cite> and of
+<code class="docutils literal notranslate"><span class="pre">count</span></code> and of
 <a class="reference internal" href="#cmdoption-arg-CountingEnumPrefixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumPrefixes</span></code></a> is the empty string.</p>
-<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <cite>true</cite> and
-<a class="reference internal" href="#cmdoption-arg-CountingEnumSuffixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumSuffixes</span></code></a> is <cite>count;size</cite>:</p>
+<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <code class="docutils literal notranslate"><span class="pre">true</span></code> and
+<a class="reference internal" href="#cmdoption-arg-CountingEnumSuffixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumSuffixes</span></code></a> is <code class="docutils literal notranslate"><span class="pre">count;size</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">TagWithCounterCount</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Tag1</span><span class="p">,</span>
 <span class="w">  </span><span class="n">Tag2</span><span class="p">,</span>
@@ -240,8 +240,8 @@ options do nothing.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <cite>true</cite> and
-<a class="reference internal" href="#cmdoption-arg-CountingEnumPrefixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumPrefixes</span></code></a> is <cite>maxsize;last_</cite></p>
+<p>When <a class="reference internal" href="#cmdoption-arg-EnableCountingEnumHeuristic"><code class="xref std std-option docutils literal notranslate"><span class="pre">EnableCountingEnumHeuristic</span></code></a> is <code class="docutils literal notranslate"><span class="pre">true</span></code> and
+<a class="reference internal" href="#cmdoption-arg-CountingEnumPrefixes"><code class="xref std std-option docutils literal notranslate"><span class="pre">CountingEnumPrefixes</span></code></a> is <code class="docutils literal notranslate"><span class="pre">maxsize;last_</span></code></p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="nc">TagWithCounterLast</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Tag1</span><span class="p">,</span>
 <span class="w">  </span><span class="n">Tag2</span><span class="p">,</span>
@@ -285,7 +285,7 @@ options do nothing.</p>
 <p>When enabled, the check will also give a warning, when the number of tags
 is greater than the number of union data members.</p>
 <p>This option is disabled by default.</p>
-<p>When <a class="reference internal" href="argument-comment.html#cmdoption-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> is <cite>false</cite>:</p>
+<p>When <a class="reference internal" href="argument-comment.html#cmdoption-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> is <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">TaggedUnion</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Tag1</span><span class="p">,</span>
@@ -299,7 +299,7 @@ is greater than the number of union data members.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>When <a class="reference internal" href="argument-comment.html#cmdoption-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> is <cite>true</cite>:</p>
+<p>When <a class="reference internal" href="argument-comment.html#cmdoption-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> is <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">TaggedUnion</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// warning: tagged union has fewer data members (2) than tags (3)</span>
 <span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Tag1</span><span class="p">,</span>

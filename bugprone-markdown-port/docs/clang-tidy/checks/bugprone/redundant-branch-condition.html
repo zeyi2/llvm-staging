@@ -47,10 +47,10 @@ the outer <code class="docutils literal notranslate"><span class="pre">if</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Here <cite>onFire</cite> is checked both in the outer <code class="docutils literal notranslate"><span class="pre">if</span></code> and the inner <code class="docutils literal notranslate"><span class="pre">if</span></code>
+<p>Here <code class="docutils literal notranslate"><span class="pre">onFire</span></code> is checked both in the outer <code class="docutils literal notranslate"><span class="pre">if</span></code> and the inner <code class="docutils literal notranslate"><span class="pre">if</span></code>
 statement without a possible change between the two checks. The check warns for
 this code and suggests removal of the second checking of variable
-<cite>onFire</cite>.</p>
+<code class="docutils literal notranslate"><span class="pre">onFire</span></code>.</p>
 <p>The checker also detects redundant condition checks if the condition variable
 is an operand of a logical “and” (<code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>) or a logical “or” (<code class="docutils literal notranslate"><span class="pre">||</span></code>) operator:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">onFire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isBurning</span><span class="p">();</span>

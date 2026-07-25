@@ -49,13 +49,13 @@ that is intentional.</p>
 </pre></div>
 </div>
 <p>Here the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement consists of only the semicolon at the end
-of the first line, and <cite>x</cite> will be incremented regardless of
+of the first line, and <code class="docutils literal notranslate"><span class="pre">x</span></code> will be incremented regardless of
 the condition.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readLine</span><span class="p">(</span><span class="n">file</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
 <span class="w">  </span><span class="n">processLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>As a result of this code, <cite>processLine()</cite> will only be called once, when the
+<p>As a result of this code, <code class="docutils literal notranslate"><span class="pre">processLine()</span></code> will only be called once, when the
 <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with the empty body exits with <code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">==</span> <span class="pre">NULL</span></code>. The indentation
 of the code indicates the intention of the programmer.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
@@ -63,7 +63,7 @@ of the code indicates the intention of the programmer.</p>
 </pre></div>
 </div>
 <p>While the indentation does not imply any nesting, there is simply no valid
-reason to have an <cite>if</cite> statement with an empty body (but it can make sense for
+reason to have an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement with an empty body (but it can make sense for
 a loop). So this check issues a warning for the code above.</p>
 <p>To solve the issue remove the stray semicolon or in case the empty body is
 intentional, reflect this using code indentation or put the semicolon in a new
@@ -73,7 +73,7 @@ line. For example:</p>
 </pre></div>
 </div>
 <p>Here the second line is indented in a way that suggests that it is meant to be
-the body of the <cite>while</cite> loop - whose body is in fact empty, because of the
+the body of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop - whose body is in fact empty, because of the
 semicolon at the end of the first line.</p>
 <p>Either remove the indentation from the second line:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">readWhitespace</span><span class="p">());</span>

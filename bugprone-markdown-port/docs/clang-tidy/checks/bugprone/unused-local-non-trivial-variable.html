@@ -49,15 +49,15 @@ The following types of variables are excluded from this check:</p>
 <li><p>name-independent variables</p></li>
 </ul>
 <p>This check can be configured to warn on all non-trivial variables by setting
-<cite>IncludeTypes</cite> to <cite>.*</cite>, and excluding
-specific types using <cite>ExcludeTypes</cite>.</p>
-<p>In the this example, <cite>my_lock</cite> would generate a warning that
+<code class="docutils literal notranslate"><span class="pre">IncludeTypes</span></code> to <code class="docutils literal notranslate"><span class="pre">.*</span></code>, and excluding
+specific types using <code class="docutils literal notranslate"><span class="pre">ExcludeTypes</span></code>.</p>
+<p>In the this example, <code class="docutils literal notranslate"><span class="pre">my_lock</span></code> would generate a warning that
 it is unused.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">my_lock</span><span class="p">;</span>
 <span class="c1">// my_lock local variable is never used</span>
 </pre></div>
 </div>
-<p>In the next example, <cite>future2</cite> would generate a warning that
+<p>In the next example, <code class="docutils literal notranslate"><span class="pre">future2</span></code> would generate a warning that
 it is unused.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future1</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future2</span><span class="p">;</span>
