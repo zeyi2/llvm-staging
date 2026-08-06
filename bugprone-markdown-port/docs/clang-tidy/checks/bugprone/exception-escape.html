@@ -125,17 +125,26 @@ exceptions in the check. Default value is an empty string.</p>
 <dd><p>Determines which functions are considered as throwing if they do not have
 an explicit exception specification. It can be set to the following values:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
-: The check will consider functions without an explicit exception
+<li><dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code></dt><dd><p>The check will consider functions without an explicit exception
 specification as throwing only if they have a visible definition which
-can be deduced to throw.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">OnlyUndefined</span></code>
-: The check will consider functions with only a declaration available and
-no visible definition as throwing.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">All</span></code>
-: The check will consider all functions without an explicit exception
+can be deduced to throw.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">OnlyUndefined</span></code></dt><dd><p>The check will consider functions with only a declaration available and
+no visible definition as throwing.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">All</span></code></dt><dd><p>The check will consider all functions without an explicit exception
 specification (such as <code class="docutils literal notranslate"><span class="pre">noexcept</span></code>) as throwing, even if they have a
-visible definition and do not contain any throwing statements.</p></li>
+visible definition and do not contain any throwing statements.</p>
+</dd>
+</dl>
+</li>
 </ul>
 <p>Default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
