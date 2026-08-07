@@ -45,12 +45,12 @@ following: <code class="docutils literal notranslate"><span class="pre">void</sp
 <p>We flag narrowing conversions from:</p>
 <ul class="simple">
 <li><p>an integer to a narrower integer (e.g. <code class="docutils literal notranslate"><span class="pre">char</span></code> to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>)
-if WarnOnIntegerNarrowingConversion Option is set,</p></li>
+if <a class="reference internal" href="#cmdoption-arg-WarnOnIntegerNarrowingConversion"><code class="xref std std-option docutils literal notranslate"><span class="pre">WarnOnIntegerNarrowingConversion</span></code></a> is set,</p></li>
 <li><p>an integer to a narrower floating-point (e.g. <code class="docutils literal notranslate"><span class="pre">uint64_t</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code>)
-if WarnOnIntegerToFloatingPointNarrowingConversion Option is set,</p></li>
+if <a class="reference internal" href="#cmdoption-arg-WarnOnIntegerToFloatingPointNarrowingConversion"><code class="xref std std-option docutils literal notranslate"><span class="pre">WarnOnIntegerToFloatingPointNarrowingConversion</span></code></a> is set,</p></li>
 <li><p>a floating-point to an integer (e.g. <code class="docutils literal notranslate"><span class="pre">double</span></code> to <code class="docutils literal notranslate"><span class="pre">int</span></code>),</p></li>
 <li><p>a floating-point to a narrower floating-point (e.g. <code class="docutils literal notranslate"><span class="pre">double</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code>)
-if WarnOnFloatingPointNarrowingConversion Option is set.</p></li>
+if <a class="reference internal" href="#cmdoption-arg-WarnOnFloatingPointNarrowingConversion"><code class="xref std std-option docutils literal notranslate"><span class="pre">WarnOnFloatingPointNarrowingConversion</span></code></a> is set.</p></li>
 </ul>
 <p>This check will flag:</p>
 <ul class="simple">
@@ -97,28 +97,28 @@ This check diagnoses more instances of narrowing than the compiler warning
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnIntegerNarrowingConversion">
 <span class="sig-name descname"><span class="pre">WarnOnIntegerNarrowingConversion</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnIntegerNarrowingConversion" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on narrowing integer conversion
-(e.g. <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">size_t</span></code>). <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
+(e.g. <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">size_t</span></code>). Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnIntegerToFloatingPointNarrowingConversion">
 <span class="sig-name descname"><span class="pre">WarnOnIntegerToFloatingPointNarrowingConversion</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnIntegerToFloatingPointNarrowingConversion" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on narrowing integer to floating-point
-conversion (e.g. <code class="docutils literal notranslate"><span class="pre">size_t</span></code> to <code class="docutils literal notranslate"><span class="pre">double</span></code>). <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
+conversion (e.g. <code class="docutils literal notranslate"><span class="pre">size_t</span></code> to <code class="docutils literal notranslate"><span class="pre">double</span></code>). Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnOnFloatingPointNarrowingConversion">
 <span class="sig-name descname"><span class="pre">WarnOnFloatingPointNarrowingConversion</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnFloatingPointNarrowingConversion" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on narrowing floating point conversion
-(e.g. <code class="docutils literal notranslate"><span class="pre">double</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code>). <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
+(e.g. <code class="docutils literal notranslate"><span class="pre">double</span></code> to <code class="docutils literal notranslate"><span class="pre">float</span></code>). Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-WarnWithinTemplateInstantiation">
 <span class="sig-name descname"><span class="pre">WarnWithinTemplateInstantiation</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnWithinTemplateInstantiation" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on narrowing conversions within template
-instantiations. <code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
+instantiations. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -126,7 +126,7 @@ instantiations. <code class="docutils literal notranslate"><span class="pre">fal
 <span class="sig-name descname"><span class="pre">WarnOnEquivalentBitWidth</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnEquivalentBitWidth" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on narrowing conversions that arise from
 casting between types of equivalent bit width. (e.g.
-<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">uint(0);</span></code> or <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">double(0);</span></code>) <code class="docutils literal notranslate"><span class="pre">true</span></code> by default.</p>
+<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">uint(0);</span></code> or <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">double(0);</span></code>) Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -146,7 +146,7 @@ suggested list for a legacy codebase would be
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on assigning a floating point constant
 to an integer value even if the floating point value is exactly
 representable in the destination type (e.g. <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">1.0;</span></code>).
-<code class="docutils literal notranslate"><span class="pre">false</span></code> by default.</p>
+Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
 </section>
