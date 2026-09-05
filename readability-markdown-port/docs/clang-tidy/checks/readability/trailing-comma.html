@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>clang-tidy - readability-trailing-comma &#8212; Extra Clang Tools 24.0.0git documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/haiku.css?v=fce32b03" />
+    <link rel="stylesheet" href="../../../_static/clang-tools-extra-styles.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=74fd0b75"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="readability-trivial-switch" href="trivial-switch.html" />
+    <link rel="prev" title="readability-suspicious-call-argument" href="suspicious-call-argument.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../../../index.html">
+          <span>Extra Clang Tools 24.0.0git documentation</span></a></h1>
+        <h2 class="heading"><span>clang-tidy - readability-trailing-comma</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="Top">
+      
+        <p>
+        «&#160;&#160;<a href="suspicious-call-argument.html">readability-suspicious-call-argument</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="trivial-switch.html">readability-trivial-switch</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <section id="readability-trailing-comma">
+<h1>readability-trailing-comma<a class="headerlink" href="#readability-trailing-comma" title="Link to this heading">¶</a></h1>
+<p>Checks for presence or absence of trailing commas in enum definitions and
+initializer lists.</p>
+<p>The check supports separate policies for single-line and multi-line constructs,
+allowing different styles for each. By default, the check enforces trailing
+commas in multi-line constructs and removes them from single-line constructs.</p>
+<p>Trailing commas in multi-line constructs offer several benefits:</p>
+<ul class="simple">
+<li><p>Adding or removing elements at the end only changes a single line, making
+diffs smaller and easier to read.</p></li>
+<li><p>Formatters may change code to a more desired style.</p></li>
+<li><p>Code generators avoid the need for special handling of the last element.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Without trailing commas - adding "Yellow" requires modifying the "Blue" line</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Red</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Green</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Blue</span>
+<span class="p">};</span>
+
+<span class="c1">// With trailing commas - adding "Yellow" is a clean, single-line change</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Color</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Red</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Green</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Blue</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h2>
+<p>The check currently doesn’t analyze code inside macros.</p>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-SingleLineCommaPolicy">
+<span class="sig-name descname"><span class="pre">SingleLineCommaPolicy</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-SingleLineCommaPolicy" title="Link to this definition">¶</a></dt>
+<dd><p>Controls whether to add, remove, or ignore trailing commas in single-line
+enum definitions and initializer lists.
+Valid values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Append</span></code>: Add trailing commas where missing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Remove</span></code>: Remove trailing commas where present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ignore</span></code>: Do not check single-line constructs.</p></li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">Remove</span></code>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-MultiLineCommaPolicy">
+<span class="sig-name descname"><span class="pre">MultiLineCommaPolicy</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-MultiLineCommaPolicy" title="Link to this definition">¶</a></dt>
+<dd><p>Controls whether to add, remove, or ignore trailing commas in multi-line
+enum definitions and initializer lists.
+Valid values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Append</span></code>: Add trailing commas where missing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Remove</span></code>: Remove trailing commas where present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ignore</span></code>: Do not check multi-line constructs.</p></li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">Append</span></code>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
+      
+        <p>
+        «&#160;&#160;<a href="suspicious-call-argument.html">readability-suspicious-call-argument</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="trivial-switch.html">readability-trivial-switch</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2007-2026, The Clang Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

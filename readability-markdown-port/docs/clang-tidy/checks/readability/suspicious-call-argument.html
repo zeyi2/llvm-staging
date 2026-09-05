@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>clang-tidy - readability-suspicious-call-argument &#8212; Extra Clang Tools 24.0.0git documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/haiku.css?v=fce32b03" />
+    <link rel="stylesheet" href="../../../_static/clang-tools-extra-styles.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=74fd0b75"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="readability-trailing-comma" href="trailing-comma.html" />
+    <link rel="prev" title="readability-string-compare" href="string-compare.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="../../../index.html">
+          <span>Extra Clang Tools 24.0.0git documentation</span></a></h1>
+        <h2 class="heading"><span>clang-tidy - readability-suspicious-call-argument</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="Top">
+      
+        <p>
+        «&#160;&#160;<a href="string-compare.html">readability-string-compare</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="trailing-comma.html">readability-trailing-comma</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <section id="readability-suspicious-call-argument">
+<h1>readability-suspicious-call-argument<a class="headerlink" href="#readability-suspicious-call-argument" title="Link to this heading">¶</a></h1>
+<p>Finds function calls where the arguments passed are provided out of order,
+based on the difference between the argument name and the parameter names
+of the function.</p>
+<p>Given a function call <code class="docutils literal notranslate"><span class="pre">f(foo,</span> <span class="pre">bar);</span></code> and a function signature
+<code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">f(T</span> <span class="pre">tvar,</span> <span class="pre">U</span> <span class="pre">uvar)</span></code>, the arguments <code class="docutils literal notranslate"><span class="pre">foo</span></code> and <code class="docutils literal notranslate"><span class="pre">bar</span></code> are swapped if
+<code class="docutils literal notranslate"><span class="pre">foo</span></code> (the argument name) is more similar to <code class="docutils literal notranslate"><span class="pre">uvar</span></code> (the other parameter)
+than <code class="docutils literal notranslate"><span class="pre">tvar</span></code> (the parameter it is currently passed to) <strong>and</strong> <code class="docutils literal notranslate"><span class="pre">bar</span></code> is
+more similar to <code class="docutils literal notranslate"><span class="pre">tvar</span></code> than <code class="docutils literal notranslate"><span class="pre">uvar</span></code>.</p>
+<p>Warnings might indicate either that the arguments are swapped, or that the
+names’ cross-similarity might hinder code comprehension.</p>
+<section id="heuristics">
+<span id="id1"></span><h2>Heuristics<a class="headerlink" href="#heuristics" title="Link to this heading">¶</a></h2>
+<p>The following heuristics are implemented in the check.
+If <strong>any</strong> of the enabled heuristics deem the arguments to be provided out of
+order, a warning will be issued.</p>
+<p>The heuristics themselves are implemented by considering pairs of strings, and
+are symmetric, so in the following there is no distinction on which string is
+the argument name and which string is the parameter name.</p>
+<section id="equality">
+<h3>Equality<a class="headerlink" href="#equality" title="Link to this heading">¶</a></h3>
+<p>The most trivial heuristic, which compares the two strings for case-insensitive
+equality.</p>
+</section>
+<section id="abbreviation">
+<span id="abbreviation-heuristic"></span><h3>Abbreviation<a class="headerlink" href="#abbreviation" title="Link to this heading">¶</a></h3>
+<p>Common abbreviations can be specified which will deem the strings similar if
+the abbreviated and the abbreviation stand together.
+For example, if <code class="docutils literal notranslate"><span class="pre">src</span></code> is registered as an abbreviation for <code class="docutils literal notranslate"><span class="pre">source</span></code>, then
+the following code example will be warned about.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The abbreviations to recognise can be configured with the
+<a class="reference internal" href="#cmdoption-arg-Abbreviations"><code class="xref std std-option docutils literal notranslate"><span class="pre">Abbreviations</span></code></a> option.
+This heuristic is case-insensitive.</p>
+</section>
+<section id="prefix">
+<h3>Prefix<a class="headerlink" href="#prefix" title="Link to this heading">¶</a></h3>
+<p>The <em>prefix</em> heuristic reports if one of the strings is a sufficiently long
+prefix of the other string, e.g. <code class="docutils literal notranslate"><span class="pre">target</span></code> to <code class="docutils literal notranslate"><span class="pre">targetPtr</span></code>.
+The similarity percentage is the length ratio of the prefix to the longer
+string, in the previous example, it would be <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">/</span> <span class="pre">9</span> <span class="pre">=</span> <span class="pre">66.66...</span></code>%.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">25</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">30</span></code>% similar.
+This heuristic is case-insensitive.</p>
+</section>
+<section id="suffix">
+<h3>Suffix<a class="headerlink" href="#suffix" title="Link to this heading">¶</a></h3>
+<p>Analogous to the <code class="docutils literal notranslate"><span class="pre">Prefix</span></code> heuristic.
+In the case of <code class="docutils literal notranslate"><span class="pre">oldValue</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> compared, the similarity percentage
+is <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">/</span> <span class="pre">5</span> <span class="pre">=</span> <span class="pre">62.5</span></code>%.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">25</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">30</span></code>% similar.
+This heuristic is case-insensitive.</p>
+</section>
+<section id="substring">
+<h3>Substring<a class="headerlink" href="#substring" title="Link to this heading">¶</a></h3>
+<p>The substring heuristic combines the prefix and the suffix heuristic, and tries
+to find the <em>longest common substring</em> in the two strings provided.
+The similarity percentage is the ratio of the found longest common substring
+against the <em>longer</em> of the two input strings.
+For example, given <code class="docutils literal notranslate"><span class="pre">val</span></code> and <code class="docutils literal notranslate"><span class="pre">rvalue</span></code>, the similarity is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">/</span> <span class="pre">6</span> <span class="pre">=</span> <span class="pre">50</span></code>%.
+If no characters are common in the two string, <code class="docutils literal notranslate"><span class="pre">0</span></code>%.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">40</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">50</span></code>% similar.
+This heuristic is case-insensitive.</p>
+</section>
+<section id="levenshtein-distance-as-levenshtein">
+<h3>Levenshtein distance (as <code class="docutils literal notranslate"><span class="pre">Levenshtein</span></code>)<a class="headerlink" href="#levenshtein-distance-as-levenshtein" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a>
+describes how many single-character changes (additions, changes, or removals)
+must be applied to transform one string into another.</p>
+<p>The Levenshtein distance is translated into a similarity percentage by dividing
+it with the length of the <em>longer</em> string, and taking its complement with
+regards to <code class="docutils literal notranslate"><span class="pre">100</span></code>%.
+For example, given <code class="docutils literal notranslate"><span class="pre">something</span></code> and <code class="docutils literal notranslate"><span class="pre">anything</span></code>, the distance is <code class="docutils literal notranslate"><span class="pre">4</span></code> edits,
+and the similarity percentage is <code class="docutils literal notranslate"><span class="pre">100</span></code>% <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">4</span> <span class="pre">/</span> <span class="pre">9</span> <span class="pre">=</span> <span class="pre">55.55...</span></code>%.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">50</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">66</span></code>% similar.
+This heuristic is case-sensitive.</p>
+</section>
+<section id="jaro-winkler-distance-as-jarowinkler">
+<h3>Jaro–Winkler distance (as <code class="docutils literal notranslate"><span class="pre">JaroWinkler</span></code>)<a class="headerlink" href="#jaro-winkler-distance-as-jarowinkler" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro–Winkler distance</a>
+is an edit distance like the Levenshtein distance.
+It is calculated from the amount of common characters that are sufficiently
+close to each other in position, and to-be-changed characters.
+The original definition of Jaro has been extended by Winkler to weigh prefix
+similarities more.
+The similarity percentage is expressed as an average of the common and
+non-common characters against the length of both strings.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">75</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">85</span></code>% similar.
+This heuristic is case-insensitive.</p>
+</section>
+<section id="sorensen-dice-coefficient-as-dice">
+<h3>Sørensen–Dice coefficient (as <code class="docutils literal notranslate"><span class="pre">Dice</span></code>)<a class="headerlink" href="#sorensen-dice-coefficient-as-dice" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient">Sørensen–Dice coefficient</a>
+was originally defined to measure the similarity of two sets.
+Formally, the coefficient is calculated by dividing <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">#(intersection)</span></code> with
+<code class="docutils literal notranslate"><span class="pre">#(set1)</span> <span class="pre">+</span> <span class="pre">#(set2)</span></code>, where <code class="docutils literal notranslate"><span class="pre">#()</span></code> is the cardinality function of sets.
+This metric is applied to strings by creating bigrams (substring sequences of
+length 2) of the two strings and using the set of bigrams for the two strings
+as the two sets.</p>
+<p>This heuristic can be configured with <a class="reference internal" href="#opt-bounds"><span class="std std-ref">bounds</span></a>.
+The default bounds are: below <code class="docutils literal notranslate"><span class="pre">60</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">70</span></code>% similar.
+This heuristic is case-insensitive.</p>
+</section>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-MinimumIdentifierNameLength">
+<span class="sig-name descname"><span class="pre">MinimumIdentifierNameLength</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-MinimumIdentifierNameLength" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the minimum required length the argument and parameter names
+need to have. Names shorter than this length will be ignored.
+Default is <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+</dd></dl>
+
+<dl class="std option" id="opt-abbreviations">
+<dt class="sig sig-object std" id="cmdoption-arg-Abbreviations">
+<span class="sig-name descname"><span class="pre">Abbreviations</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-Abbreviations" title="Link to this definition">¶</a></dt>
+<dd><p>For the <strong>Abbreviation</strong> heuristic
+(<a class="reference internal" href="#abbreviation-heuristic"><span class="std std-ref">see here</span></a>), this option configures the
+abbreviations in the <code class="docutils literal notranslate"><span class="pre">&quot;abbreviation=abbreviated_value&quot;</span></code> format.
+The option is a string, with each value joined by <code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>.</p>
+<p>By default, the following abbreviations are set:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">addr=address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr=array</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attr=attribute</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buf=buffer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cl=client</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cnt=count</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col=column</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpy=copy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest=destination</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist=distance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dst=distance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elem=element</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hght=height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i=index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx=index</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len=length</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ln=line</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lst=list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nr=number</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num=number</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos=position</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ptr=pointer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref=reference</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src=source</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srv=server</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stmt=statement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str=string</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">val=value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var=variable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec=vector</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wdth=width</span></code></p></li>
+</ul>
+</dd></dl>
+
+<p>The configuration options for each implemented heuristic (see above) is
+constructed dynamically.
+In the following, <code class="docutils literal notranslate"><span class="pre">&lt;HeuristicName&gt;</span></code> refers to one of the keys from the
+heuristics implemented.</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HeuristicName">
+<span class="sig-name descname"><span class="pre">&lt;HeuristicName&gt;</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HeuristicName" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, whether a particular heuristic, such as <code class="docutils literal notranslate"><span class="pre">Equality</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Levenshtein</span></code> is enabled.</p>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">true</span></code> for every heuristic.</p>
+</dd></dl>
+
+<dl class="std option" id="opt-bounds">
+<dt class="sig sig-object std" id="cmdoption-arg-HeuristicName-DissimilarBelow">
+<span id="cmdoption-arg-HeuristicName-SimilarAbove"></span><span class="sig-name descname"><span class="pre">&lt;HeuristicName&gt;DissimilarBelow</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">&lt;HeuristicName&gt;SimilarAbove</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HeuristicName-DissimilarBelow" title="Link to this definition">¶</a></dt>
+<dd><p>A value between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code>, expressing a percentage.
+The bounds set what percentage of similarity the heuristic must deduce
+for the two identifiers to be considered similar or dissimilar by the
+check.</p>
+<p>Given arguments <code class="docutils literal notranslate"><span class="pre">arg1</span></code> and <code class="docutils literal notranslate"><span class="pre">arg2</span></code> passed to <code class="docutils literal notranslate"><span class="pre">param1</span></code> and <code class="docutils literal notranslate"><span class="pre">param2</span></code>,
+respectively, the bounds check is performed in the following way:
+If the similarity of the currently passed argument order
+(<code class="docutils literal notranslate"><span class="pre">arg1</span></code> to <code class="docutils literal notranslate"><span class="pre">param1</span></code>) is <strong>below</strong> the <code class="docutils literal notranslate"><span class="pre">DissimilarBelow</span></code> threshold, and
+the similarity of the suggested swapped order (<code class="docutils literal notranslate"><span class="pre">arg1</span></code> to <code class="docutils literal notranslate"><span class="pre">param2</span></code>) is
+<strong>above</strong> the <code class="docutils literal notranslate"><span class="pre">SimilarAbove</span></code> threshold, the swap is reported.</p>
+<p>For the defaults of each heuristic, <a class="reference internal" href="#heuristics"><span class="std std-ref">see above</span></a>.</p>
+</dd></dl>
+
+</section>
+<section id="name-synthesis">
+<h2>Name synthesis<a class="headerlink" href="#name-synthesis" title="Link to this heading">¶</a></h2>
+<p>When comparing the argument names and parameter names, the following logic is
+used to gather the names for comparison:</p>
+<p>Parameter names are the identifiers as written in the source code.</p>
+<p>Argument names are:</p>
+<ul class="simple">
+<li><p>If a variable is passed, the variable’s name.</p></li>
+<li><p>If a subsequent function call’s return value is used as argument, the
+called function’s name.</p></li>
+<li><p>Otherwise, empty string.</p></li>
+</ul>
+<p>Empty argument or parameter names are ignored by the heuristics.</p>
+</section>
+</section>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
+      
+        <p>
+        «&#160;&#160;<a href="string-compare.html">readability-string-compare</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="trailing-comma.html">readability-trailing-comma</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2007-2026, The Clang Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

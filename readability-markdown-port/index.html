@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Readability clang-tidy Markdown port</title>
+</head>
+<body>
+  <h1>Readability clang-tidy Markdown port</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Check name</th>
+        <th>Prev</th>
+        <th>Now</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>readability-ambiguous-smartptr-reset-call</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/ambiguous-smartptr-reset-call.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/ambiguous-smartptr-reset-call.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-avoid-return-with-void-value</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/avoid-return-with-void-value.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/avoid-return-with-void-value.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-avoid-unconditional-preprocessor-if</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/avoid-unconditional-preprocessor-if.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/avoid-unconditional-preprocessor-if.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-braces-around-statements</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/braces-around-statements.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/braces-around-statements.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-const-return-type</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/const-return-type.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/const-return-type.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-container-contains</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/container-contains.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/container-contains.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-container-size-empty</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/container-size-empty.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/container-size-empty.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-duplicate-include</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/duplicate-include.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/duplicate-include.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-else-after-return</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/else-after-return.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/else-after-return.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-enum-initial-value</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/enum-initial-value.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/enum-initial-value.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-function-cognitive-complexity</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/function-cognitive-complexity.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/function-cognitive-complexity.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-function-size</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/function-size.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/function-size.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-identifier-length</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-length.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/identifier-length.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-identifier-naming</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/identifier-naming.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-implicit-bool-conversion</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/implicit-bool-conversion.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/implicit-bool-conversion.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-inconsistent-declaration-parameter-name</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/inconsistent-declaration-parameter-name.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/inconsistent-declaration-parameter-name.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-inconsistent-ifelse-braces</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/inconsistent-ifelse-braces.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/inconsistent-ifelse-braces.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-isolate-declaration</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/isolate-declaration.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/isolate-declaration.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-magic-numbers</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/magic-numbers.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/magic-numbers.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-make-member-function-const</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/make-member-function-const.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/make-member-function-const.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-misleading-indentation</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/misleading-indentation.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/misleading-indentation.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-named-parameter</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/named-parameter.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/named-parameter.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-non-const-parameter</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/non-const-parameter.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/non-const-parameter.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-operators-representation</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/operators-representation.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/operators-representation.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-qualified-auto</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/qualified-auto.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/qualified-auto.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-access-specifiers</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-access-specifiers.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-access-specifiers.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-casting</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-casting.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-casting.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-control-flow</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-control-flow.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-control-flow.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-declaration</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-declaration.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-declaration.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-inline-specifier</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-inline-specifier.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-inline-specifier.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-lambda-parameter-list</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-lambda-parameter-list.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-lambda-parameter-list.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-member-init</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-member-init.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-member-init.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-nested-if</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-nested-if.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-nested-if.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-parentheses</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-parentheses.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-parentheses.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-preprocessor</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-preprocessor.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-preprocessor.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-qualified-alias</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-qualified-alias.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-qualified-alias.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-string-init</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-string-init.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-string-init.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-redundant-typename</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/redundant-typename.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/redundant-typename.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-reference-to-constructed-temporary</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/reference-to-constructed-temporary.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/reference-to-constructed-temporary.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-simplify-boolean-expr</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/simplify-boolean-expr.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/simplify-boolean-expr.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-static-accessed-through-instance</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/static-accessed-through-instance.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/static-accessed-through-instance.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-string-compare</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/string-compare.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/string-compare.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-suspicious-call-argument</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/suspicious-call-argument.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/suspicious-call-argument.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-trailing-comma</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/trailing-comma.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/trailing-comma.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-trivial-switch</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/trivial-switch.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/trivial-switch.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-uniqueptr-delete-release</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/uniqueptr-delete-release.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/uniqueptr-delete-release.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-uppercase-literal-suffix</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/uppercase-literal-suffix.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/uppercase-literal-suffix.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-use-anyofallof</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/use-anyofallof.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/use-anyofallof.html">markdown version</a></td>
+      </tr>
+      <tr>
+        <td>readability-use-concise-preprocessor-directives</td>
+        <td><a href="https://clang.llvm.org/extra/clang-tidy/checks/readability/use-concise-preprocessor-directives.html">LLVM documentation</a></td>
+        <td><a href="docs/clang-tidy/checks/readability/use-concise-preprocessor-directives.html">markdown version</a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+
