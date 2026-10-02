@@ -874,7 +874,7 @@ This heuristic is case-insensitive.</p>
 <h3>Suffix<a class="headerlink" href="#suffix" title="Link to this heading">#</a></h3>
 <p>Analogous to the <code class="docutils literal notranslate"><span class="pre">Prefix</span></code> heuristic.
 In the case of <code class="docutils literal notranslate"><span class="pre">oldValue</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> compared, the similarity percentage
-is <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">/</span> <span class="pre">5</span> <span class="pre">=</span> <span class="pre">62.5</span></code>%.</p>
+is <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">/</span> <span class="pre">8</span> <span class="pre">=</span> <span class="pre">62.5</span></code>%.</p>
 <p>This heuristic can be configured with <a class="reference internal" href="#cmdoption-arg-HeuristicName-DissimilarBelow"><code class="xref std std-option docutils literal notranslate"><span class="pre">&lt;HeuristicName&gt;DissimilarBelow</span></code></a> and
 <a class="reference internal" href="#cmdoption-arg-HeuristicName-DissimilarBelow"><code class="xref std std-option docutils literal notranslate"><span class="pre">&lt;HeuristicName&gt;SimilarAbove</span></code></a>.
 The default bounds are: below <code class="docutils literal notranslate"><span class="pre">25</span></code>% dissimilar and above <code class="docutils literal notranslate"><span class="pre">30</span></code>% similar.
@@ -1013,9 +1013,10 @@ check.</p>
 <p>Given arguments <code class="docutils literal notranslate"><span class="pre">arg1</span></code> and <code class="docutils literal notranslate"><span class="pre">arg2</span></code> passed to <code class="docutils literal notranslate"><span class="pre">param1</span></code> and <code class="docutils literal notranslate"><span class="pre">param2</span></code>,
 respectively, the bounds check is performed in the following way:
 If the similarity of the currently passed argument order
-(<code class="docutils literal notranslate"><span class="pre">arg1</span></code> to <code class="docutils literal notranslate"><span class="pre">param1</span></code>) is <strong>below</strong> the <code class="docutils literal notranslate"><span class="pre">DissimilarBelow</span></code> threshold, and
+(<code class="docutils literal notranslate"><span class="pre">arg1</span></code> to <code class="docutils literal notranslate"><span class="pre">param1</span></code>) is <strong>below</strong> the
+<a class="reference internal" href="#cmdoption-arg-HeuristicName-DissimilarBelow"><code class="xref std std-option docutils literal notranslate"><span class="pre">&lt;HeuristicName&gt;DissimilarBelow</span></code></a> threshold, and
 the similarity of the suggested swapped order (<code class="docutils literal notranslate"><span class="pre">arg1</span></code> to <code class="docutils literal notranslate"><span class="pre">param2</span></code>) is
-<strong>above</strong> the <code class="docutils literal notranslate"><span class="pre">SimilarAbove</span></code> threshold, the swap is reported.</p>
+<strong>above</strong> the <a class="reference internal" href="#cmdoption-arg-HeuristicName-DissimilarBelow"><code class="xref std std-option docutils literal notranslate"><span class="pre">&lt;HeuristicName&gt;SimilarAbove</span></code></a> threshold, the swap is reported.</p>
 <p>For the defaults of each heuristic, <a class="reference internal" href="#heuristics"><span class="std std-ref">see above</span></a>.</p>
 </dd></dl>
 
