@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-override
 ```
 
-```{program} modernize-use-override
-```
-
 # modernize-use-override
 
 Adds `override` (introduced in C++11) to overridden virtual functions and
@@ -25,14 +22,20 @@ This can be useful as compilers can generate a compile time error when:
 
 ## Options
 
+(modernize-use-override-ignore-destructors)=
+
 ```{option} IgnoreDestructors
 If set to `true`, this check will not diagnose destructors. Default is `false`.
 ```
+
+(modernize-use-override-ignore-template-instantiations)=
 
 ```{option} IgnoreTemplateInstantiations
 If set to `true`, instructs this check to ignore virtual function overrides
 that are part of template instantiations. Default is `false`.
 ```
+
+(modernize-use-override-allow-override-and-final)=
 
 ```{option} AllowOverrideAndFinal
 If set to `true`, this check will not diagnose `override` as redundant
@@ -42,16 +45,22 @@ members, such as `gcc -Wsuggest-override`/`gcc -Werror=suggest-override`.
 Default is `false`.
 ```
 
+(modernize-use-override-allow-virtual-and-override)=
+
 ```{option} AllowVirtualAndOverride
 If set to `true`, this check will not diagnose `virtual` as redundant
 with `override`. Default is `false`.
 ```
+
+(modernize-use-override-override-spelling)=
 
 ```{option} OverrideSpelling
 Specifies a macro to use instead of `override`. This is useful when
 maintaining source code that also needs to compile with a pre-C++11
 compiler.
 ```
+
+(modernize-use-override-final-spelling)=
 
 ```{option} FinalSpelling
 Specifies a macro to use instead of `final`. This is useful when

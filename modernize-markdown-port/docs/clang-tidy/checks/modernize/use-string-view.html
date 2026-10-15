@@ -375,9 +375,9 @@ simply make an explicit conversion.</p>
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-string-view-arg-CheckOverloadedFunctions">
-<span class="sig-name descname"><span class="pre">CheckOverloadedFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-string-view-arg-CheckOverloadedFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-string-view-check-overloaded-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-CheckOverloadedFunctions">
+<span class="sig-name descname"><span class="pre">CheckOverloadedFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-CheckOverloadedFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will also consider overloaded functions for
 <code class="docutils literal notranslate"><span class="pre">string_view</span></code> conversion suggestions. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, overloaded
 functions are skipped to avoid potential issues with ambiguous
@@ -385,9 +385,9 @@ conversions.</p>
 <p>Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-string-view-arg-IgnoredFunctions">
-<span class="sig-name descname"><span class="pre">IgnoredFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-string-view-arg-IgnoredFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-string-view-ignored-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoredFunctions">
+<span class="sig-name descname"><span class="pre">IgnoredFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoredFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of the names of functions or methods to be
 ignored. Regular expressions are accepted, e.g. <code class="docutils literal notranslate"><span class="pre">[Rr]ef(erence)?$</span></code> matches
 every type with suffix <code class="docutils literal notranslate"><span class="pre">Ref</span></code>, <code class="docutils literal notranslate"><span class="pre">ref</span></code>, <code class="docutils literal notranslate"><span class="pre">Reference</span></code> and <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p>
@@ -397,9 +397,9 @@ against only the type name (i.e. <code class="docutils literal notranslate"><spa
 <p>Default is <code class="docutils literal notranslate"><span class="pre">toString$;ToString$;to_string$</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-string-view-arg-ReplacementStringViewClass">
-<span class="sig-name descname"><span class="pre">ReplacementStringViewClass</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-string-view-arg-ReplacementStringViewClass" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-string-view-replacement-string-view-class">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementStringViewClass">
+<span class="sig-name descname"><span class="pre">ReplacementStringViewClass</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementStringViewClass" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of <code class="docutils literal notranslate"><span class="pre">string=string_view</span></code> pairs for replacing
 <code class="docutils literal notranslate"><span class="pre">string</span></code> to <code class="docutils literal notranslate"><span class="pre">string_view</span></code> counterparts.</p>
 <div class="table-wrapper colwidths-auto docutils container">

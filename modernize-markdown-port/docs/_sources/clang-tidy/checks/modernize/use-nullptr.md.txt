@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-nullptr
 ```
 
-```{program} modernize-use-nullptr
-```
-
 # modernize-use-nullptr
 
 The check converts the usage of null pointer constants (e.g. `NULL`, `0`)
@@ -48,11 +45,15 @@ void expect_null(std::nullptr_t);
 
 ## Options
 
+(modernize-use-nullptr-ignored-types)=
+
 ```{option} IgnoredTypes
 Semicolon-separated list of regular expressions to match pointer types for
 which implicit casts will be ignored. Default is
 `std::_CmpUnspecifiedParam::;^std::__cmp_cat::__unspec;^std::__cmp_cat::__literal_zero`.
 ```
+
+(modernize-use-nullptr-null-macros)=
 
 ````{option} NullMacros
 Comma-separated list of macro names that will be transformed along with
@@ -77,13 +78,17 @@ void assignment() {
 }
 ```
 
-if the {option}`NullMacros` option is set to `MY_NULL`.
+if the [`NullMacros`](#modernize-use-nullptr-null-macros) option is set to `MY_NULL`.
 ````
+
+(modernize-use-nullptr-use-nullptr-t)=
 
 ```{option} UseNullptrT
 Boolean controlling whether we should replace `decltype(nullptr)` with the
 type `std::nullptr_t` from `<cstddef>`. Default is `true`.
 ```
+
+(modernize-use-nullptr-include-style)=
 
 ```{option} IncludeStyle
 A string specifying which include-style is used, `llvm` or `google`. Default is `llvm`.

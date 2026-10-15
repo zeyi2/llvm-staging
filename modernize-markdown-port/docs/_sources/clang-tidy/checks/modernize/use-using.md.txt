@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-using
 ```
 
-```{program} modernize-use-using
-```
-
 # modernize-use-using
 
 The check converts the usage of `typedef` with `using` keyword.
@@ -43,9 +40,13 @@ This check requires using C++11 or higher to run.
 
 ## Options
 
+(modernize-use-using-ignore-macros)=
+
 ```{option} IgnoreMacros
 If set to `true`, the check will not give warnings inside macros. Default is `true`.
 ```
+
+(modernize-use-using-ignore-extern-c)=
 
 ```{option} IgnoreExternC
 If set to `true`, the check will not give warning inside `extern "C"`

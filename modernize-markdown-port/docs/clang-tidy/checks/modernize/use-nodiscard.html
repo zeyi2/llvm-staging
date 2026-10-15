@@ -322,9 +322,9 @@ external call (e.g. I/O).</p>
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-nodiscard-arg-ReplacementString">
-<span class="sig-name descname"><span class="pre">ReplacementString</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-nodiscard-arg-ReplacementString" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-nodiscard-replacement-string">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementString">
+<span class="sig-name descname"><span class="pre">ReplacementString</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementString" title="Link to this definition">¶</a></dt>
 <dd><p>Specifies a macro to use instead of <code class="docutils literal notranslate"><span class="pre">[[nodiscard]]</span></code>. This is useful when
 maintaining source code that needs to compile with a pre-C++17 compiler.</p>
 <p>Example:</p>
@@ -337,10 +337,10 @@ maintaining source code that needs to compile with a pre-C++17 compiler.</p>
 <span class="n">NO_DISCARD</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>if the <a class="reference internal" href="#cmdoption-modernize-use-nodiscard-arg-ReplacementString"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">NO_DISCARD</span></code>.</p>
+<p>if the <a class="reference internal" href="#modernize-use-nodiscard-replacement-string"><code class="docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">NO_DISCARD</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the <a class="reference internal" href="#cmdoption-modernize-use-nodiscard-arg-ReplacementString"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> is not a C++ attribute, but instead a
+<p>If the <a class="reference internal" href="#modernize-use-nodiscard-replacement-string"><code class="docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> is not a C++ attribute, but instead a
 macro, then that macro must be defined in scope or the fix-it will not be
 applied.</p>
 </div>

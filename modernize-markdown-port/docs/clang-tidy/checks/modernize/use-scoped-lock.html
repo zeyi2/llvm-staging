@@ -339,18 +339,18 @@ that can be replaced with a single declaration of <code class="docutils literal 
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-scoped-lock-arg-WarnOnSingleLocks">
-<span class="sig-name descname"><span class="pre">WarnOnSingleLocks</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-scoped-lock-arg-WarnOnSingleLocks" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-scoped-lock-warn-on-single-locks">
+<dt class="sig sig-object std" id="cmdoption-arg-WarnOnSingleLocks">
+<span class="sig-name descname"><span class="pre">WarnOnSingleLocks</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnSingleLocks" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will warn on single <code class="docutils literal notranslate"><span class="pre">std::lock_guard</span></code> declarations.
 Set this option to <code class="docutils literal notranslate"><span class="pre">false</span></code> if you want to get warnings only on multiple
 <code class="docutils literal notranslate"><span class="pre">std::lock_guard</span></code> declarations that can be replaced with a single
 <code class="docutils literal notranslate"><span class="pre">std::scoped_lock</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-scoped-lock-arg-WarnOnUsingAndTypedef">
-<span class="sig-name descname"><span class="pre">WarnOnUsingAndTypedef</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-scoped-lock-arg-WarnOnUsingAndTypedef" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-scoped-lock-warn-on-using-and-typedef">
+<dt class="sig sig-object std" id="cmdoption-arg-WarnOnUsingAndTypedef">
+<span class="sig-name descname"><span class="pre">WarnOnUsingAndTypedef</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-WarnOnUsingAndTypedef" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will emit warnings if <code class="docutils literal notranslate"><span class="pre">std::lock_guard</span></code> is used
 in <code class="docutils literal notranslate"><span class="pre">using</span></code> or <code class="docutils literal notranslate"><span class="pre">typedef</span></code> context. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>

@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-std-print
 ```
 
-```{program} modernize-use-std-print
-```
-
 # modernize-use-std-print
 
 Converts calls to `printf`, `fprintf`, `absl::PrintF` and
@@ -27,7 +24,7 @@ into:
 std::println(stderr, "The {} is {:3}", description, value);
 ```
 
-If the {option}`ReplacementPrintFunction` or {option}`ReplacementPrintlnFunction` options
+If the [`ReplacementPrintFunction`](#modernize-use-std-print-replacement-print-function) or [`ReplacementPrintlnFunction`](#modernize-use-std-print-replacement-println-function) options
 are left at or set to their default values then this check is only enabled
 with `-std=c++23` or later.
 
@@ -73,14 +70,14 @@ be left unchanged.
 If the call is deemed suitable for conversion then:
 
 - `printf`, `fprintf`, `absl::PrintF`, `absl::FPrintF` and any
-  functions specified by the {option}`PrintfLikeFunctions` option or
-  {option}`FprintfLikeFunctions` are replaced with the function specified by the
-  {option}`ReplacementPrintlnFunction` option if the format string ends with `\n`
-  or {option}`ReplacementPrintFunction` otherwise.
+  functions specified by the [`PrintfLikeFunctions`](#modernize-use-std-print-printf-like-functions) option or
+  [`FprintfLikeFunctions`](#modernize-use-std-print-fprintf-like-functions) are replaced with the function specified by the
+  [`ReplacementPrintlnFunction`](#modernize-use-std-print-replacement-println-function) option if the format string ends with `\n`
+  or [`ReplacementPrintFunction`](#modernize-use-std-print-replacement-print-function) otherwise.
 - the format string is rewritten to use the `std::formatter` language. If
   a `\n` is found at the end of the format string not preceded by `r`
-  then it is removed and {option}`ReplacementPrintlnFunction` is used rather than
-  {option}`ReplacementPrintFunction`.
+  then it is removed and [`ReplacementPrintlnFunction`](#modernize-use-std-print-replacement-println-function) is used rather than
+  [`ReplacementPrintFunction`](#modernize-use-std-print-replacement-print-function).
 - any arguments that corresponded to `%p` specifiers that
   `std::formatter` wouldn't accept are wrapped in a `static_cast`
   to `const void *`.
@@ -88,12 +85,14 @@ If the call is deemed suitable for conversion then:
   is of `signed char` or `unsigned char` type are wrapped in a
   `reinterpret_cast<const char *>`.
 - any arguments where the format string and the parameter differ in
-  signedness will be wrapped in an appropriate `static_cast` if {option}`StrictMode`
+  signedness will be wrapped in an appropriate `static_cast` if [`StrictMode`](#modernize-use-std-print-strict-mode)
   is enabled.
 - any arguments that end in a call to `std::string::c_str()` or
   `std::string::data()` will have that call removed.
 
 ## Options
+
+(modernize-use-std-print-strict-mode)=
 
 ````{option} StrictMode
 When `true`, the check will add casts when converting from variadic
@@ -102,7 +101,7 @@ functions like `printf` and printing signed or unsigned integer types
 `size_t` and `ssize_t`) as the opposite signedness to ensure that
 the output matches that of `printf`. This does not apply when
 converting from non-variadic functions such as `absl::PrintF` and
-`fmt::printf`. For example, with {option}`StrictMode` enabled:
+`fmt::printf`. For example, with [`StrictMode`](#modernize-use-std-print-strict-mode) enabled:
 
 ```c++
 int i = -42;
@@ -123,16 +122,20 @@ these casts will not be added which may cause a change in the output.
 Default is `false`.
 ````
 
+(modernize-use-std-print-printf-like-functions)=
+
 ```{option} PrintfLikeFunctions
 A semicolon-separated list of regular expressions matching the
 (fully qualified) names of functions to replace, with the requirement
 that the first parameter contains the printf-style format string and the
 arguments to be formatted follow immediately afterwards. Qualified member
 function names are supported, but the replacement function name must be
-unqualified. If neither this option nor {option}`FprintfLikeFunctions` are set then
+unqualified. If neither this option nor [`FprintfLikeFunctions`](#modernize-use-std-print-fprintf-like-functions) are set then
 the default value is `printf; absl::PrintF`, otherwise it is the empty
 string.
 ```
+
+(modernize-use-std-print-fprintf-like-functions)=
 
 ```{option} FprintfLikeFunctions
 A semicolon-separated list of regular expressions matching the
@@ -141,9 +144,11 @@ that the first parameter is retained, the second parameter contains the
 printf-style format string and the arguments to be formatted follow
 immediately afterwards. Qualified member function names are supported,
 but the replacement function name must be unqualified. If neither this
-option nor {option}`PrintfLikeFunctions` are set then the default value is
+option nor [`PrintfLikeFunctions`](#modernize-use-std-print-printf-like-functions) are set then the default value is
 `fprintf;absl::FPrintF`, otherwise it is the empty string.
 ```
+
+(modernize-use-std-print-replacement-print-function)=
 
 ```{option} ReplacementPrintFunction
 The function that will be used to replace `printf`, `fprintf` etc.
@@ -153,6 +158,8 @@ function provides an interface that is compatible with `std::print`. A
 suitable candidate would be `fmt::print`.
 ```
 
+(modernize-use-std-print-replacement-println-function)=
+
 ```{option} ReplacementPrintlnFunction
 The function that will be used to replace `printf`, `fprintf` etc.
 during conversion rather than the default `std::println` when the
@@ -161,10 +168,12 @@ function provides an interface that is compatible with `std::println`.
 A suitable candidate would be `fmt::println`.
 ```
 
+(modernize-use-std-print-print-header)=
+
 ```{option} PrintHeader
 The header that must be included for the declaration of
-{option}`ReplacementPrintFunction` so that a `#include` directive can be
-added if required. If {option}`ReplacementPrintFunction` is `std::print`
+[`ReplacementPrintFunction`](#modernize-use-std-print-replacement-print-function) so that a `#include` directive can be
+added if required. If [`ReplacementPrintFunction`](#modernize-use-std-print-replacement-print-function) is `std::print`
 then this option will default to `<print>`, otherwise this option will
 default to nothing and no `#include` directive will be added.
 ```

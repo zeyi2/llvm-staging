@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-scoped-lock
 ```
 
-```{program} modernize-use-scoped-lock
-```
-
 # modernize-use-scoped-lock
 
 Finds uses of `std::lock_guard` and suggests replacing them with C++17's
@@ -73,12 +70,16 @@ void instantiate() {
 
 ## Options
 
+(modernize-use-scoped-lock-warn-on-single-locks)=
+
 ```{option} WarnOnSingleLocks
 When `true`, the check will warn on single `std::lock_guard` declarations.
 Set this option to `false` if you want to get warnings only on multiple
 `std::lock_guard` declarations that can be replaced with a single
 `std::scoped_lock`. Default is `true`.
 ```
+
+(modernize-use-scoped-lock-warn-on-using-and-typedef)=
 
 ````{option} WarnOnUsingAndTypedef
 When `true`, the check will emit warnings if `std::lock_guard` is used

@@ -309,9 +309,9 @@
 </div>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-type-traits-arg-IgnoreMacros">
-<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-type-traits-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-type-traits-ignore-macros">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreMacros">
+<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
 <dd><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> don’t diagnose traits defined in macros.</p>
 <p>Note: Fixes will never be emitted for code inside of macros.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#define IS_SIGNED(T) std::is_signed&lt;T&gt;::value</span>

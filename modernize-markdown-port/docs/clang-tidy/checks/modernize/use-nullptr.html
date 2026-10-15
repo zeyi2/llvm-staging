@@ -322,17 +322,17 @@ from <code class="docutils literal notranslate"><span class="pre">&lt;cstddef&gt
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-nullptr-arg-IgnoredTypes">
-<span class="sig-name descname"><span class="pre">IgnoredTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-nullptr-arg-IgnoredTypes" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-nullptr-ignored-types">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoredTypes">
+<span class="sig-name descname"><span class="pre">IgnoredTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoredTypes" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of regular expressions to match pointer types for
 which implicit casts will be ignored. Default is
 <code class="docutils literal notranslate"><span class="pre">std::_CmpUnspecifiedParam::;^std::__cmp_cat::__unspec;^std::__cmp_cat::__literal_zero</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-nullptr-arg-NullMacros">
-<span class="sig-name descname"><span class="pre">NullMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-nullptr-arg-NullMacros" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-nullptr-null-macros">
+<dt class="sig sig-object std" id="cmdoption-arg-NullMacros">
+<span class="sig-name descname"><span class="pre">NullMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-NullMacros" title="Link to this definition">¶</a></dt>
 <dd><p>Comma-separated list of macro names that will be transformed along with
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. By default this check will only replace the <code class="docutils literal notranslate"><span class="pre">NULL</span></code> macro and will
 skip any similar user-defined macros.</p>
@@ -350,19 +350,19 @@ skip any similar user-defined macros.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>if the <a class="reference internal" href="#cmdoption-modernize-use-nullptr-arg-NullMacros"><code class="xref std std-option docutils literal notranslate"><span class="pre">NullMacros</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">MY_NULL</span></code>.</p>
+<p>if the <a class="reference internal" href="#modernize-use-nullptr-null-macros"><code class="docutils literal notranslate"><span class="pre">NullMacros</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">MY_NULL</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-nullptr-arg-UseNullptrT">
-<span class="sig-name descname"><span class="pre">UseNullptrT</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-nullptr-arg-UseNullptrT" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-nullptr-use-nullptr-t">
+<dt class="sig sig-object std" id="cmdoption-arg-UseNullptrT">
+<span class="sig-name descname"><span class="pre">UseNullptrT</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-UseNullptrT" title="Link to this definition">¶</a></dt>
 <dd><p>Boolean controlling whether we should replace <code class="docutils literal notranslate"><span class="pre">decltype(nullptr)</span></code> with the
 type <code class="docutils literal notranslate"><span class="pre">std::nullptr_t</span></code> from <code class="docutils literal notranslate"><span class="pre">&lt;cstddef&gt;</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-nullptr-arg-IncludeStyle">
-<span class="sig-name descname"><span class="pre">IncludeStyle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-nullptr-arg-IncludeStyle" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-nullptr-include-style">
+<dt class="sig sig-object std" id="cmdoption-arg-IncludeStyle">
+<span class="sig-name descname"><span class="pre">IncludeStyle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IncludeStyle" title="Link to this definition">¶</a></dt>
 <dd><p>A string specifying which include-style is used, <code class="docutils literal notranslate"><span class="pre">llvm</span></code> or <code class="docutils literal notranslate"><span class="pre">google</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">llvm</span></code>.</p>
 </dd></dl>
 

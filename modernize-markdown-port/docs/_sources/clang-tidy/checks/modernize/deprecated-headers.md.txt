@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-deprecated-headers
 ```
 
-```{program} modernize-deprecated-headers
-```
-
 # modernize-deprecated-headers
 
 Some headers from C library were deprecated in C++ and are no longer welcome in
@@ -74,6 +71,8 @@ extern "C" {
 ```
 
 ## Options
+
+(modernize-deprecated-headers-check-header-file)=
 
 ```{option} CheckHeaderFile
 `clang-tidy` cannot know if the header file included by the currently

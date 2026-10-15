@@ -313,9 +313,9 @@ initializers for classes.</p>
 </div>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-default-member-init-arg-UseAssignment">
-<span class="sig-name descname"><span class="pre">UseAssignment</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-default-member-init-arg-UseAssignment" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-default-member-init-use-assignment">
+<dt class="sig sig-object std" id="cmdoption-arg-UseAssignment">
+<span class="sig-name descname"><span class="pre">UseAssignment</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-UseAssignment" title="Link to this definition">¶</a></dt>
 <dd><p>If this option is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will initialize
 members with an assignment. For example:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
@@ -329,17 +329,17 @@ members with an assignment. For example:</p>
 <p>Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-default-member-init-arg-IgnoreMacros">
-<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-default-member-init-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-default-member-init-ignore-macros">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreMacros">
+<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
 <dd><p>If this option is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will not warn
 about members declared inside macros.
 Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-default-member-init-arg-IgnoreNonVisibleReferences">
-<span class="sig-name descname"><span class="pre">IgnoreNonVisibleReferences</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-default-member-init-arg-IgnoreNonVisibleReferences" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-default-member-init-ignore-non-visible-references">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreNonVisibleReferences">
+<span class="sig-name descname"><span class="pre">IgnoreNonVisibleReferences</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreNonVisibleReferences" title="Link to this definition">¶</a></dt>
 <dd><p>If this option is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will not warn
 about member initializers that refer to declarations that would not be
 visible from the default member initializer created by the fix-it. If set to

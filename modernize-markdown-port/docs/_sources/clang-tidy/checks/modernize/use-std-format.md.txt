@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-std-format
 ```
 
-```{program} modernize-use-std-format
-```
-
 # modernize-use-std-format
 
 Converts calls to `absl::StrFormat`, or other functions via
@@ -31,6 +28,8 @@ documentation for that check.
 
 ## Options
 
+(modernize-use-std-format-strict-mode)=
+
 ````{option} StrictMode
 When `true`, the check will add casts when converting from variadic
 functions and printing signed or unsigned integer types (including
@@ -38,7 +37,7 @@ fixed-width integer types from `<cstdint>`, `ptrdiff_t`, `size_t`
 and `ssize_t`) as the opposite signedness to ensure that the output
 matches that of a simple wrapper for `std::sprintf` that
 accepted a C-style variable argument list. For example, with
-{option}`StrictMode` enabled,
+[`StrictMode`](#modernize-use-std-format-strict-mode) enabled,
 
 ```c++
 extern std::string strprintf(const char *format, ...);
@@ -58,10 +57,12 @@ of -42 and the signed representation of 0xffffffff (often 4294967254
 and -1 respectively). When `false`, these casts
 will not be added which may cause a change in the output. Note that this
 option makes no difference for the default value of
-{option}`StrFormatLikeFunctions` since `absl::StrFormat` takes a function
+[`StrFormatLikeFunctions`](#modernize-use-std-format-str-format-like-functions) since `absl::StrFormat` takes a function
 parameter pack and is not a variadic function.
 Default is `false`.
 ````
+
+(modernize-use-std-format-str-format-like-functions)=
 
 ```{option} StrFormatLikeFunctions
 A semicolon-separated list of regular expressions matching the
@@ -72,18 +73,22 @@ function names are supported, but the replacement function name must be
 unqualified. Default is `absl::StrFormat`.
 ```
 
+(modernize-use-std-format-replacement-format-function)=
+
 ```{option} ReplacementFormatFunction
 The function that will be used to replace the function set by the
-{option}`StrFormatLikeFunctions` option rather than the default
+[`StrFormatLikeFunctions`](#modernize-use-std-format-str-format-like-functions) option rather than the default
 `std::format`. It is expected that the function provides an interface
 that is compatible with `std::format`. A suitable candidate would be
 `fmt::format`.
 ```
 
+(modernize-use-std-format-format-header)=
+
 ```{option} FormatHeader
 The header that must be included for the declaration of
-{option}`ReplacementFormatFunction` so that a `#include` directive can be added if
-required. If {option}`ReplacementFormatFunction` is `std::format` then this option will
+[`ReplacementFormatFunction`](#modernize-use-std-format-replacement-format-function) so that a `#include` directive can be added if
+required. If [`ReplacementFormatFunction`](#modernize-use-std-format-replacement-format-function) is `std::format` then this option will
 default to `<format>`, otherwise this option will default to nothing
 and no `#include` directive will be added.
 ```

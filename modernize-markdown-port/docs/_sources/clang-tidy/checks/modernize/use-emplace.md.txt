@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-emplace
 ```
 
-```{program} modernize-use-emplace
-```
-
 # modernize-use-emplace
 
 The check flags insertions to an STL-style container done by calling the
@@ -15,16 +12,16 @@ potentially more efficient code. Right now the check doesn't support
 containers because replacing `insert` with `emplace` may result in
 [speed regression](https://htmlpreview.github.io/?https://github.com/HowardHinnant/papers/blob/master/insert_vs_emplace.html), but it might get support with some addition flag in the future.
 
-The {option}`ContainersWithPushBack`, {option}`ContainersWithPush`, and
-{option}`ContainersWithPushFront` options are used to specify the container
+The [`ContainersWithPushBack`](#modernize-use-emplace-containers-with-push-back), [`ContainersWithPush`](#modernize-use-emplace-containers-with-push), and
+[`ContainersWithPushFront`](#modernize-use-emplace-containers-with-push-front) options are used to specify the container
 types that support the `push_back`, `push`, and `push_front` operations
 respectively. The default values for these options are as follows:
 
-- {option}`ContainersWithPushBack`: `std::vector`, `std::deque`,
+- [`ContainersWithPushBack`](#modernize-use-emplace-containers-with-push-back): `std::vector`, `std::deque`,
   and `std::list`.
-- {option}`ContainersWithPush`: `std::stack`, `std::queue`,
+- [`ContainersWithPush`](#modernize-use-emplace-containers-with-push): `std::stack`, `std::queue`,
   and `std::priority_queue`.
-- {option}`ContainersWithPushFront`: `std::forward_list`,
+- [`ContainersWithPushFront`](#modernize-use-emplace-containers-with-push-front): `std::forward_list`,
   `std::list`, and `std::deque`.
 
 This check also reports when an `emplace`-like method is improperly used,
@@ -33,7 +30,7 @@ creates a temporary that requires at best a move and at worst a copy. Almost
 all `emplace`-like functions in the STL are covered by this, with
 `try_emplace` on `std::map` and `std::unordered_map` being the
 exception as it behaves slightly differently than all the others. More
-containers can be added with the {option}`EmplacyFunctions` option, so long
+containers can be added with the [`EmplacyFunctions`](#modernize-use-emplace-emplacy-functions) option, so long
 as the container defines a `value_type` type, and the `emplace`-like
 functions construct a `value_type` object.
 
@@ -67,8 +64,8 @@ w.emplace_back(21L, 37L);
 By default, the check is able to remove unnecessary `std::make_pair` and
 `std::make_tuple` calls from `push_back` calls on containers of
 `std::pair` and `std::tuple`. Custom tuple-like types can be modified by
-the {option}`TupleTypes` option; custom make functions can be modified by the
-{option}`TupleMakeFunctions` option.
+the [`TupleTypes`](#modernize-use-emplace-tuple-types) option; custom make functions can be modified by the
+[`TupleMakeFunctions`](#modernize-use-emplace-tuple-make-functions) option.
 
 The other situation is when we pass arguments that will be converted to a type
 inside a container.
@@ -106,7 +103,7 @@ Scott Meyers "Effective Modern C++".
 
 The default smart pointers that are considered are `std::unique_ptr`,
 `std::shared_ptr`, `std::auto_ptr`. To specify other smart pointers or
-other classes use the {option}`SmartPointers` option.
+other classes use the [`SmartPointers`](#modernize-use-emplace-smart-pointers) option.
 
 Check also doesn't fire if any argument of the constructor call would be:
 
@@ -118,20 +115,28 @@ This check requires C++11 or higher to run.
 
 ## Options
 
+(modernize-use-emplace-containers-with-push-back)=
+
 ```{option} ContainersWithPushBack
 Semicolon-separated list of class names of custom containers that support
 `push_back`.
 ```
+
+(modernize-use-emplace-containers-with-push)=
 
 ```{option} ContainersWithPush
 Semicolon-separated list of class names of custom containers that support
 `push`.
 ```
 
+(modernize-use-emplace-containers-with-push-front)=
+
 ```{option} ContainersWithPushFront
 Semicolon-separated list of class names of custom containers that support
 `push_front`.
 ```
+
+(modernize-use-emplace-ignore-implicit-constructors)=
 
 ````{option} IgnoreImplicitConstructors
 When `true`, the check will ignore implicitly constructed arguments of
@@ -145,19 +150,27 @@ v.push_back("a"); // Ignored when IgnoreImplicitConstructors is `true`.
 Default is `false`.
 ````
 
+(modernize-use-emplace-smart-pointers)=
+
 ```{option} SmartPointers
 Semicolon-separated list of class names of custom smart pointers.
 ```
 
+(modernize-use-emplace-tuple-types)=
+
 ```{option} TupleTypes
 Semicolon-separated list of `std::tuple`-like class names.
 ```
+
+(modernize-use-emplace-tuple-make-functions)=
 
 ```{option} TupleMakeFunctions
 Semicolon-separated list of `std::make_tuple`-like function names. Those
 function calls will be removed from `push_back` calls and turned into
 `emplace_back`.
 ```
+
+(modernize-use-emplace-emplacy-functions)=
 
 ```{option} EmplacyFunctions
 Semicolon-separated list of containers without their template parameters
@@ -183,6 +196,6 @@ x.emplace_back(1, false, 'x');
 x.emplace_back(1, false, 'x');
 ```
 
-when {option}`TupleTypes` is set to `MyTuple`, {option}`TupleMakeFunctions`
-is set to `MakeMyTuple`, and {option}`EmplacyFunctions` is set to
+when [`TupleTypes`](#modernize-use-emplace-tuple-types) is set to `MyTuple`, [`TupleMakeFunctions`](#modernize-use-emplace-tuple-make-functions)
+is set to `MakeMyTuple`, and [`EmplacyFunctions`](#modernize-use-emplace-emplacy-functions) is set to
 `vector::emplace_back`.

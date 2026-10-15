@@ -303,16 +303,16 @@ shortcomings and behaviour in combination with macros are described in the
 documentation for that check.</p>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-format-arg-StrictMode">
-<span class="sig-name descname"><span class="pre">StrictMode</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-format-arg-StrictMode" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-format-strict-mode">
+<dt class="sig sig-object std" id="cmdoption-arg-StrictMode">
+<span class="sig-name descname"><span class="pre">StrictMode</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StrictMode" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will add casts when converting from variadic
 functions and printing signed or unsigned integer types (including
 fixed-width integer types from <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">ptrdiff_t</span></code>, <code class="docutils literal notranslate"><span class="pre">size_t</span></code>
 and <code class="docutils literal notranslate"><span class="pre">ssize_t</span></code>) as the opposite signedness to ensure that the output
 matches that of a simple wrapper for <code class="docutils literal notranslate"><span class="pre">std::sprintf</span></code> that
 accepted a C-style variable argument list. For example, with
-<a class="reference internal" href="#cmdoption-modernize-use-std-format-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> enabled,</p>
+<a class="reference internal" href="#modernize-use-std-format-strict-mode"><code class="docutils literal notranslate"><span class="pre">StrictMode</span></code></a> enabled,</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">strprintf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-42</span><span class="p">;</span>
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xffffffff</span><span class="p">;</span>
@@ -328,14 +328,14 @@ of -42 and the signed representation of 0xffffffff (often 4294967254
 and -1 respectively). When <code class="docutils literal notranslate"><span class="pre">false</span></code>, these casts
 will not be added which may cause a change in the output. Note that this
 option makes no difference for the default value of
-<a class="reference internal" href="#cmdoption-modernize-use-std-format-arg-StrFormatLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrFormatLikeFunctions</span></code></a> since <code class="docutils literal notranslate"><span class="pre">absl::StrFormat</span></code> takes a function
+<a class="reference internal" href="#modernize-use-std-format-str-format-like-functions"><code class="docutils literal notranslate"><span class="pre">StrFormatLikeFunctions</span></code></a> since <code class="docutils literal notranslate"><span class="pre">absl::StrFormat</span></code> takes a function
 parameter pack and is not a variadic function.
 Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-format-arg-StrFormatLikeFunctions">
-<span class="sig-name descname"><span class="pre">StrFormatLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-format-arg-StrFormatLikeFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-format-str-format-like-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-StrFormatLikeFunctions">
+<span class="sig-name descname"><span class="pre">StrFormatLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StrFormatLikeFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of regular expressions matching the
 (fully qualified) names of functions to replace, with the requirement that
 the first parameter contains the printf-style format string and the
@@ -344,22 +344,22 @@ function names are supported, but the replacement function name must be
 unqualified. Default is <code class="docutils literal notranslate"><span class="pre">absl::StrFormat</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-format-arg-ReplacementFormatFunction">
-<span class="sig-name descname"><span class="pre">ReplacementFormatFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-format-arg-ReplacementFormatFunction" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-format-replacement-format-function">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementFormatFunction">
+<span class="sig-name descname"><span class="pre">ReplacementFormatFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementFormatFunction" title="Link to this definition">¶</a></dt>
 <dd><p>The function that will be used to replace the function set by the
-<a class="reference internal" href="#cmdoption-modernize-use-std-format-arg-StrFormatLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrFormatLikeFunctions</span></code></a> option rather than the default
+<a class="reference internal" href="#modernize-use-std-format-str-format-like-functions"><code class="docutils literal notranslate"><span class="pre">StrFormatLikeFunctions</span></code></a> option rather than the default
 <code class="docutils literal notranslate"><span class="pre">std::format</span></code>. It is expected that the function provides an interface
 that is compatible with <code class="docutils literal notranslate"><span class="pre">std::format</span></code>. A suitable candidate would be
 <code class="docutils literal notranslate"><span class="pre">fmt::format</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-format-arg-FormatHeader">
-<span class="sig-name descname"><span class="pre">FormatHeader</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-format-arg-FormatHeader" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-format-format-header">
+<dt class="sig sig-object std" id="cmdoption-arg-FormatHeader">
+<span class="sig-name descname"><span class="pre">FormatHeader</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-FormatHeader" title="Link to this definition">¶</a></dt>
 <dd><p>The header that must be included for the declaration of
-<a class="reference internal" href="#cmdoption-modernize-use-std-format-arg-ReplacementFormatFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementFormatFunction</span></code></a> so that a <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive can be added if
-required. If <a class="reference internal" href="#cmdoption-modernize-use-std-format-arg-ReplacementFormatFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementFormatFunction</span></code></a> is <code class="docutils literal notranslate"><span class="pre">std::format</span></code> then this option will
+<a class="reference internal" href="#modernize-use-std-format-replacement-format-function"><code class="docutils literal notranslate"><span class="pre">ReplacementFormatFunction</span></code></a> so that a <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive can be added if
+required. If <a class="reference internal" href="#modernize-use-std-format-replacement-format-function"><code class="docutils literal notranslate"><span class="pre">ReplacementFormatFunction</span></code></a> is <code class="docutils literal notranslate"><span class="pre">std::format</span></code> then this option will
 default to <code class="docutils literal notranslate"><span class="pre">&lt;format&gt;</span></code>, otherwise this option will default to nothing
 and no <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive will be added.</p>
 </dd></dl>

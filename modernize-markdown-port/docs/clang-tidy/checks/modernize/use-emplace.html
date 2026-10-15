@@ -292,16 +292,16 @@ potentially more efficient code. Right now the check doesn’t support
 <code class="docutils literal notranslate"><span class="pre">insert</span></code>. It also doesn’t support <code class="docutils literal notranslate"><span class="pre">insert</span></code> functions for associative
 containers because replacing <code class="docutils literal notranslate"><span class="pre">insert</span></code> with <code class="docutils literal notranslate"><span class="pre">emplace</span></code> may result in
 <a class="reference external" href="https://htmlpreview.github.io/?https://github.com/HowardHinnant/papers/blob/master/insert_vs_emplace.html">speed regression</a>, but it might get support with some addition flag in the future.</p>
-<p>The <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushBack"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPushBack</span></code></a>, <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPush"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPush</span></code></a>, and
-<a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushFront"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPushFront</span></code></a> options are used to specify the container
+<p>The <a class="reference internal" href="#modernize-use-emplace-containers-with-push-back"><code class="docutils literal notranslate"><span class="pre">ContainersWithPushBack</span></code></a>, <a class="reference internal" href="#modernize-use-emplace-containers-with-push"><code class="docutils literal notranslate"><span class="pre">ContainersWithPush</span></code></a>, and
+<a class="reference internal" href="#modernize-use-emplace-containers-with-push-front"><code class="docutils literal notranslate"><span class="pre">ContainersWithPushFront</span></code></a> options are used to specify the container
 types that support the <code class="docutils literal notranslate"><span class="pre">push_back</span></code>, <code class="docutils literal notranslate"><span class="pre">push</span></code>, and <code class="docutils literal notranslate"><span class="pre">push_front</span></code> operations
 respectively. The default values for these options are as follows:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushBack"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPushBack</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, <code class="docutils literal notranslate"><span class="pre">std::deque</span></code>,
+<li><p><a class="reference internal" href="#modernize-use-emplace-containers-with-push-back"><code class="docutils literal notranslate"><span class="pre">ContainersWithPushBack</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, <code class="docutils literal notranslate"><span class="pre">std::deque</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">std::list</span></code>.</p></li>
-<li><p><a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPush"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPush</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::stack</span></code>, <code class="docutils literal notranslate"><span class="pre">std::queue</span></code>,
+<li><p><a class="reference internal" href="#modernize-use-emplace-containers-with-push"><code class="docutils literal notranslate"><span class="pre">ContainersWithPush</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::stack</span></code>, <code class="docutils literal notranslate"><span class="pre">std::queue</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">std::priority_queue</span></code>.</p></li>
-<li><p><a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushFront"><code class="xref std std-option docutils literal notranslate"><span class="pre">ContainersWithPushFront</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::forward_list</span></code>,
+<li><p><a class="reference internal" href="#modernize-use-emplace-containers-with-push-front"><code class="docutils literal notranslate"><span class="pre">ContainersWithPushFront</span></code></a>: <code class="docutils literal notranslate"><span class="pre">std::forward_list</span></code>,
 <code class="docutils literal notranslate"><span class="pre">std::list</span></code>, and <code class="docutils literal notranslate"><span class="pre">std::deque</span></code>.</p></li>
 </ul>
 <p>This check also reports when an <code class="docutils literal notranslate"><span class="pre">emplace</span></code>-like method is improperly used,
@@ -310,7 +310,7 @@ creates a temporary that requires at best a move and at worst a copy. Almost
 all <code class="docutils literal notranslate"><span class="pre">emplace</span></code>-like functions in the STL are covered by this, with
 <code class="docutils literal notranslate"><span class="pre">try_emplace</span></code> on <code class="docutils literal notranslate"><span class="pre">std::map</span></code> and <code class="docutils literal notranslate"><span class="pre">std::unordered_map</span></code> being the
 exception as it behaves slightly differently than all the others. More
-containers can be added with the <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-EmplacyFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">EmplacyFunctions</span></code></a> option, so long
+containers can be added with the <a class="reference internal" href="#modernize-use-emplace-emplacy-functions"><code class="docutils literal notranslate"><span class="pre">EmplacyFunctions</span></code></a> option, so long
 as the container defines a <code class="docutils literal notranslate"><span class="pre">value_type</span></code> type, and the <code class="docutils literal notranslate"><span class="pre">emplace</span></code>-like
 functions construct a <code class="docutils literal notranslate"><span class="pre">value_type</span></code> object.</p>
 <p>Before:</p>
@@ -339,8 +339,8 @@ functions construct a <code class="docutils literal notranslate"><span class="pr
 <p>By default, the check is able to remove unnecessary <code class="docutils literal notranslate"><span class="pre">std::make_pair</span></code> and
 <code class="docutils literal notranslate"><span class="pre">std::make_tuple</span></code> calls from <code class="docutils literal notranslate"><span class="pre">push_back</span></code> calls on containers of
 <code class="docutils literal notranslate"><span class="pre">std::pair</span></code> and <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>. Custom tuple-like types can be modified by
-the <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-TupleTypes"><code class="xref std std-option docutils literal notranslate"><span class="pre">TupleTypes</span></code></a> option; custom make functions can be modified by the
-<a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-TupleMakeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">TupleMakeFunctions</span></code></a> option.</p>
+the <a class="reference internal" href="#modernize-use-emplace-tuple-types"><code class="docutils literal notranslate"><span class="pre">TupleTypes</span></code></a> option; custom make functions can be modified by the
+<a class="reference internal" href="#modernize-use-emplace-tuple-make-functions"><code class="docutils literal notranslate"><span class="pre">TupleMakeFunctions</span></code></a> option.</p>
 <p>The other situation is when we pass arguments that will be converted to a type
 inside a container.</p>
 <p>Before:</p>
@@ -368,7 +368,7 @@ enough memory to add a new element).</p>
 Scott Meyers “Effective Modern C++”.</p>
 <p>The default smart pointers that are considered are <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>,
 <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>, <code class="docutils literal notranslate"><span class="pre">std::auto_ptr</span></code>. To specify other smart pointers or
-other classes use the <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-SmartPointers"><code class="xref std std-option docutils literal notranslate"><span class="pre">SmartPointers</span></code></a> option.</p>
+other classes use the <a class="reference internal" href="#modernize-use-emplace-smart-pointers"><code class="docutils literal notranslate"><span class="pre">SmartPointers</span></code></a> option.</p>
 <p>Check also doesn’t fire if any argument of the constructor call would be:</p>
 <ul class="simple">
 <li><p>a bit-field (bit-fields can’t bind to rvalue/universal reference)</p></li>
@@ -378,30 +378,30 @@ other classes use the <a class="reference internal" href="#cmdoption-modernize-u
 <p>This check requires C++11 or higher to run.</p>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-ContainersWithPushBack">
-<span class="sig-name descname"><span class="pre">ContainersWithPushBack</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushBack" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-containers-with-push-back">
+<dt class="sig sig-object std" id="cmdoption-arg-ContainersWithPushBack">
+<span class="sig-name descname"><span class="pre">ContainersWithPushBack</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ContainersWithPushBack" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of class names of custom containers that support
 <code class="docutils literal notranslate"><span class="pre">push_back</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-ContainersWithPush">
-<span class="sig-name descname"><span class="pre">ContainersWithPush</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPush" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-containers-with-push">
+<dt class="sig sig-object std" id="cmdoption-arg-ContainersWithPush">
+<span class="sig-name descname"><span class="pre">ContainersWithPush</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ContainersWithPush" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of class names of custom containers that support
 <code class="docutils literal notranslate"><span class="pre">push</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-ContainersWithPushFront">
-<span class="sig-name descname"><span class="pre">ContainersWithPushFront</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-ContainersWithPushFront" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-containers-with-push-front">
+<dt class="sig sig-object std" id="cmdoption-arg-ContainersWithPushFront">
+<span class="sig-name descname"><span class="pre">ContainersWithPushFront</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ContainersWithPushFront" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of class names of custom containers that support
 <code class="docutils literal notranslate"><span class="pre">push_front</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-IgnoreImplicitConstructors">
-<span class="sig-name descname"><span class="pre">IgnoreImplicitConstructors</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-IgnoreImplicitConstructors" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-ignore-implicit-constructors">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreImplicitConstructors">
+<span class="sig-name descname"><span class="pre">IgnoreImplicitConstructors</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreImplicitConstructors" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will ignore implicitly constructed arguments of
 <code class="docutils literal notranslate"><span class="pre">push_back</span></code>, e.g.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
@@ -411,29 +411,29 @@ other classes use the <a class="reference internal" href="#cmdoption-modernize-u
 <p>Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-SmartPointers">
-<span class="sig-name descname"><span class="pre">SmartPointers</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-SmartPointers" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-smart-pointers">
+<dt class="sig sig-object std" id="cmdoption-arg-SmartPointers">
+<span class="sig-name descname"><span class="pre">SmartPointers</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-SmartPointers" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of class names of custom smart pointers.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-TupleTypes">
-<span class="sig-name descname"><span class="pre">TupleTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-TupleTypes" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-tuple-types">
+<dt class="sig sig-object std" id="cmdoption-arg-TupleTypes">
+<span class="sig-name descname"><span class="pre">TupleTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-TupleTypes" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>-like class names.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-TupleMakeFunctions">
-<span class="sig-name descname"><span class="pre">TupleMakeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-TupleMakeFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-tuple-make-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-TupleMakeFunctions">
+<span class="sig-name descname"><span class="pre">TupleMakeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-TupleMakeFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of <code class="docutils literal notranslate"><span class="pre">std::make_tuple</span></code>-like function names. Those
 function calls will be removed from <code class="docutils literal notranslate"><span class="pre">push_back</span></code> calls and turned into
 <code class="docutils literal notranslate"><span class="pre">emplace_back</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-emplace-arg-EmplacyFunctions">
-<span class="sig-name descname"><span class="pre">EmplacyFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-emplace-arg-EmplacyFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-emplace-emplacy-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-EmplacyFunctions">
+<span class="sig-name descname"><span class="pre">EmplacyFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-EmplacyFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>Semicolon-separated list of containers without their template parameters
 and some <code class="docutils literal notranslate"><span class="pre">emplace</span></code>-like method of the container. Example:
 <code class="docutils literal notranslate"><span class="pre">vector::emplace_back</span></code>. Those methods will be checked for improper use and
@@ -454,8 +454,8 @@ containers with such member functions are supported by default.</p>
 <span class="n">x</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="sc">'x'</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>when <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-TupleTypes"><code class="xref std std-option docutils literal notranslate"><span class="pre">TupleTypes</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">MyTuple</span></code>, <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-TupleMakeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">TupleMakeFunctions</span></code></a>
-is set to <code class="docutils literal notranslate"><span class="pre">MakeMyTuple</span></code>, and <a class="reference internal" href="#cmdoption-modernize-use-emplace-arg-EmplacyFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">EmplacyFunctions</span></code></a> is set to
+<p>when <a class="reference internal" href="#modernize-use-emplace-tuple-types"><code class="docutils literal notranslate"><span class="pre">TupleTypes</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">MyTuple</span></code>, <a class="reference internal" href="#modernize-use-emplace-tuple-make-functions"><code class="docutils literal notranslate"><span class="pre">TupleMakeFunctions</span></code></a>
+is set to <code class="docutils literal notranslate"><span class="pre">MakeMyTuple</span></code>, and <a class="reference internal" href="#modernize-use-emplace-emplacy-functions"><code class="docutils literal notranslate"><span class="pre">EmplacyFunctions</span></code></a> is set to
 <code class="docutils literal notranslate"><span class="pre">vector::emplace_back</span></code>.</p>
 </section>
 </section>

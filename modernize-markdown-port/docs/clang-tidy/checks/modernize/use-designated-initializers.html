@@ -314,16 +314,16 @@ in C and <code class="docutils literal notranslate"><span class="pre">-Wc++20-de
 C++ language modes.</p>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-designated-initializers-arg-IgnoreMacros">
-<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-designated-initializers-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-designated-initializers-ignore-macros">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreMacros">
+<span class="sig-name descname"><span class="pre">IgnoreMacros</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreMacros" title="Link to this definition">¶</a></dt>
 <dd><p>The value <code class="docutils literal notranslate"><span class="pre">false</span></code> specifies that components of initializer lists expanded from
 macros are not checked. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-designated-initializers-arg-IgnoreSingleElementAggregates">
-<span class="sig-name descname"><span class="pre">IgnoreSingleElementAggregates</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-designated-initializers-arg-IgnoreSingleElementAggregates" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-designated-initializers-ignore-single-element-aggregates">
+<dt class="sig sig-object std" id="cmdoption-arg-IgnoreSingleElementAggregates">
+<span class="sig-name descname"><span class="pre">IgnoreSingleElementAggregates</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IgnoreSingleElementAggregates" title="Link to this definition">¶</a></dt>
 <dd><p>The value <code class="docutils literal notranslate"><span class="pre">false</span></code> specifies that even initializers for aggregate types with
 only a single element should be checked.
 <code class="docutils literal notranslate"><span class="pre">std::array</span></code> initializations are always excluded, as the type is a
@@ -332,23 +332,23 @@ designated initializers.
 Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-designated-initializers-arg-RestrictToPODTypes">
-<span class="sig-name descname"><span class="pre">RestrictToPODTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-designated-initializers-arg-RestrictToPODTypes" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-designated-initializers-restrict-to-pod-types">
+<dt class="sig sig-object std" id="cmdoption-arg-RestrictToPODTypes">
+<span class="sig-name descname"><span class="pre">RestrictToPODTypes</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-RestrictToPODTypes" title="Link to this definition">¶</a></dt>
 <dd><p>The value <code class="docutils literal notranslate"><span class="pre">true</span></code> specifies that only Plain Old Data (POD) types shall be
 checked. This makes the check applicable to even older C++ standards. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-designated-initializers-arg-StrictCStandardCompliance">
-<span class="sig-name descname"><span class="pre">StrictCStandardCompliance</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-designated-initializers-arg-StrictCStandardCompliance" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-designated-initializers-strict-c-standard-compliance">
+<dt class="sig sig-object std" id="cmdoption-arg-StrictCStandardCompliance">
+<span class="sig-name descname"><span class="pre">StrictCStandardCompliance</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StrictCStandardCompliance" title="Link to this definition">¶</a></dt>
 <dd><p>When set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the check will not restrict itself to C99 and above.
 Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-designated-initializers-arg-StrictCppStandardCompliance">
-<span class="sig-name descname"><span class="pre">StrictCppStandardCompliance</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-designated-initializers-arg-StrictCppStandardCompliance" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-designated-initializers-strict-cpp-standard-compliance">
+<dt class="sig sig-object std" id="cmdoption-arg-StrictCppStandardCompliance">
+<span class="sig-name descname"><span class="pre">StrictCppStandardCompliance</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StrictCppStandardCompliance" title="Link to this definition">¶</a></dt>
 <dd><p>When set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the check will not restrict itself to C++20 and above.
 Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>

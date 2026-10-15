@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-integer-sign-comparison
 ```
 
-```{program} modernize-use-integer-sign-comparison
-```
-
 # modernize-use-integer-sign-comparison
 
 Replace comparisons between signed and unsigned integers with their safe
@@ -32,10 +29,14 @@ unsigned int func(int a, unsigned int b) {
 
 ## Options
 
+(modernize-use-integer-sign-comparison-include-style)=
+
 ```{option} IncludeStyle
 A string specifying which include-style is used, `llvm` or `google`.
 Default is `llvm`.
 ```
+
+(modernize-use-integer-sign-comparison-enable-qt-support)=
 
 ```{option} EnableQtSupport
 Makes C++17 `q20::cmp_*` alternative available for Qt-based

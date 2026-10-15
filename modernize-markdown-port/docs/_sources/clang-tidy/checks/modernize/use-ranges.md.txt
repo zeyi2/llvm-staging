@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-ranges
 ```
 
-```{program} modernize-use-ranges
-```
-
 # modernize-use-ranges
 
 Detects calls to standard library iterator algorithms that could be replaced
@@ -132,9 +129,13 @@ auto AreSame = std::ranges::equal(std::views::reverse(Items1),
 
 ## Options
 
+(modernize-use-ranges-include-style)=
+
 ```{option} IncludeStyle
 A string specifying which include-style is used, `llvm` or `google`. Default is `llvm`.
 ```
+
+(modernize-use-ranges-use-reverse-pipe)=
 
 ````{option} UseReversePipe
 When `true`, fixes which involve reverse ranges will use the

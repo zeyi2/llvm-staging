@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-equals-default
 ```
 
-```{program} modernize-use-equals-default
-```
-
 # modernize-use-equals-default
 
 This check replaces default bodies of special member functions with `=
@@ -32,6 +29,8 @@ Move-constructor and move-assignment operator are not supported yet.
 ```
 
 ## Options
+
+(modernize-use-equals-default-ignore-macros)=
 
 ```{option} IgnoreMacros
 If set to `true`, the check will not give warnings inside macros and will

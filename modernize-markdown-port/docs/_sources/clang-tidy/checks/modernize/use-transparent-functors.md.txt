@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-transparent-functors
 ```
 
-```{program} modernize-use-transparent-functors
-```
-
 # modernize-use-transparent-functors
 
 Prefer transparent functors to non-transparent ones. When using transparent
@@ -31,6 +28,8 @@ std::map<const char *, std::string, std::greater<std::string>> s;
 ```
 
 ## Options
+
+(modernize-use-transparent-functors-safe-mode)=
 
 ```{option} SafeMode
 If the option is set to `true`, the check will not diagnose cases where

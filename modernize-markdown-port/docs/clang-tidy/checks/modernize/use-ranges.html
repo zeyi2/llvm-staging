@@ -402,15 +402,15 @@ fixed using the <code class="docutils literal notranslate"><span class="pre">std
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-ranges-arg-IncludeStyle">
-<span class="sig-name descname"><span class="pre">IncludeStyle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-ranges-arg-IncludeStyle" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-ranges-include-style">
+<dt class="sig sig-object std" id="cmdoption-arg-IncludeStyle">
+<span class="sig-name descname"><span class="pre">IncludeStyle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-IncludeStyle" title="Link to this definition">¶</a></dt>
 <dd><p>A string specifying which include-style is used, <code class="docutils literal notranslate"><span class="pre">llvm</span></code> or <code class="docutils literal notranslate"><span class="pre">google</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">llvm</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-ranges-arg-UseReversePipe">
-<span class="sig-name descname"><span class="pre">UseReversePipe</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-ranges-arg-UseReversePipe" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-ranges-use-reverse-pipe">
+<dt class="sig sig-object std" id="cmdoption-arg-UseReversePipe">
+<span class="sig-name descname"><span class="pre">UseReversePipe</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-UseReversePipe" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, fixes which involve reverse ranges will use the
 pipe adaptor syntax instead of the function syntax.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">Items</span><span class="p">.</span><span class="n">rbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">Items</span><span class="p">.</span><span class="n">rend</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>

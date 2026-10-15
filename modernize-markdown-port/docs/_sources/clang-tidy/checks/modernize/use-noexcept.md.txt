@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-noexcept
 ```
 
-```{program} modernize-use-noexcept
-```
-
 # modernize-use-noexcept
 
 This check replaces deprecated dynamic exception specifications with
@@ -28,8 +25,10 @@ void bar() noexcept(false) {}
 
 ## Options
 
+(modernize-use-noexcept-replacement-string)=
+
 ````{option} ReplacementString
-Users can use {option}`ReplacementString` to specify a macro to use
+Users can use [`ReplacementString`](#modernize-use-noexcept-replacement-string) to specify a macro to use
 instead of `noexcept`. This is useful when maintaining source code
 that uses custom exception specification marking other than
 `noexcept`. Fix-it hints will only be generated for non-throwing
@@ -49,8 +48,10 @@ void bar() throw(int);  // No fix-it generated.
 void foo() NOEXCEPT;
 ```
 
-if the {option}`ReplacementString` option is set to `NOEXCEPT`.
+if the [`ReplacementString`](#modernize-use-noexcept-replacement-string) option is set to `NOEXCEPT`.
 ````
+
+(modernize-use-noexcept-use-noexcept-false)=
 
 ````{option} UseNoexceptFalse
 When `false`, the check will generate fix-it hints that remove
@@ -85,7 +86,7 @@ struct bar {
 }
 ```
 
-if the {option}`UseNoexceptFalse` option is set to `false`.
+if the [`UseNoexceptFalse`](#modernize-use-noexcept-use-noexcept-false) option is set to `false`.
 
 Default is `true`.
 ````

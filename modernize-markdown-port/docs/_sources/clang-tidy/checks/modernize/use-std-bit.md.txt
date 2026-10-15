@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-std-bit
 ```
 
-```{program} modernize-use-std-bit
-```
-
 # modernize-use-std-bit
 
 Finds common idioms which can be replaced by standard functions from the
@@ -21,6 +18,8 @@ Covered scenarios:
 | `x << 61 \| x >> 3` | `std::rotr(x, 3)` |
 
 ## Options
+
+(modernize-use-std-bit-honor-int-promotion)=
 
 ````{option} HonorIntPromotion
 When set to `true`, insert explicit cast to make sure the

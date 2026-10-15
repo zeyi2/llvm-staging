@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-replace-auto-ptr
 ```
 
-```{program} modernize-replace-auto-ptr
-```
-
 # modernize-replace-auto-ptr
 
 This check replaces the uses of the deprecated class `std::auto_ptr` by
@@ -73,6 +70,8 @@ void f() {
 ```
 
 ## Options
+
+(modernize-replace-auto-ptr-include-style)=
 
 ```{option} IncludeStyle
 A string specifying which include-style is used, `llvm` or `google`. Default is `llvm`.

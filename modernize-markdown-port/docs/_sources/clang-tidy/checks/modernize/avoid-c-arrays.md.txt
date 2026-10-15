@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-avoid-c-arrays
 ```
 
-```{program} modernize-avoid-c-arrays
-```
-
 # modernize-avoid-c-arrays
 
 `cppcoreguidelines-avoid-c-arrays` redirects here as an alias for this check.
@@ -63,6 +60,8 @@ can be either `char* argv[]` or `char** argv`, but cannot be
 `std::array<>`.
 
 ## Options
+
+(modernize-avoid-c-arrays-allow-string-arrays)=
 
 ````{option} AllowStringArrays
 When set to `true`, variables of character array type

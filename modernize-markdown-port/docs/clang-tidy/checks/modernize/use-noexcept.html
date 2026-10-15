@@ -303,10 +303,10 @@ and <code class="docutils literal notranslate"><span class="pre">throw(&lt;excep
 </section>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-noexcept-arg-ReplacementString">
-<span class="sig-name descname"><span class="pre">ReplacementString</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-noexcept-arg-ReplacementString" title="Link to this definition">¶</a></dt>
-<dd><p>Users can use <a class="reference internal" href="#cmdoption-modernize-use-noexcept-arg-ReplacementString"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> to specify a macro to use
+<dl class="std option" id="modernize-use-noexcept-replacement-string">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementString">
+<span class="sig-name descname"><span class="pre">ReplacementString</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementString" title="Link to this definition">¶</a></dt>
+<dd><p>Users can use <a class="reference internal" href="#modernize-use-noexcept-replacement-string"><code class="docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> to specify a macro to use
 instead of <code class="docutils literal notranslate"><span class="pre">noexcept</span></code>. This is useful when maintaining source code
 that uses custom exception specification marking other than
 <code class="docutils literal notranslate"><span class="pre">noexcept</span></code>. Fix-it hints will only be generated for non-throwing
@@ -321,12 +321,12 @@ specifications.</p>
 <span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="n">NOEXCEPT</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>if the <a class="reference internal" href="#cmdoption-modernize-use-noexcept-arg-ReplacementString"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">NOEXCEPT</span></code>.</p>
+<p>if the <a class="reference internal" href="#modernize-use-noexcept-replacement-string"><code class="docutils literal notranslate"><span class="pre">ReplacementString</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">NOEXCEPT</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-noexcept-arg-UseNoexceptFalse">
-<span class="sig-name descname"><span class="pre">UseNoexceptFalse</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-noexcept-arg-UseNoexceptFalse" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-noexcept-use-noexcept-false">
+<dt class="sig sig-object std" id="cmdoption-arg-UseNoexceptFalse">
+<span class="sig-name descname"><span class="pre">UseNoexceptFalse</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-UseNoexceptFalse" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">false</span></code>, the check will generate fix-it hints that remove
 throwing dynamic exception specs, e.g., <code class="docutils literal notranslate"><span class="pre">throw(&lt;something&gt;)</span></code>,
 completely without providing a replacement text, except for
@@ -354,7 +354,7 @@ default.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>if the <a class="reference internal" href="#cmdoption-modernize-use-noexcept-arg-UseNoexceptFalse"><code class="xref std std-option docutils literal notranslate"><span class="pre">UseNoexceptFalse</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>if the <a class="reference internal" href="#modernize-use-noexcept-use-noexcept-false"><code class="docutils literal notranslate"><span class="pre">UseNoexceptFalse</span></code></a> option is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </dd></dl>
 

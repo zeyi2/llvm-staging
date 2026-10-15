@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-std-numbers
 ```
 
-```{program} modernize-use-std-numbers
-```
-
 # modernize-use-std-numbers
 
 Finds constants and function calls to math functions that can be replaced
@@ -63,11 +60,15 @@ void foo() {
 
 ## Options
 
+(modernize-use-std-numbers-diff-threshold)=
+
 ```{option} DiffThreshold
 A floating point value that sets the detection threshold for when literals
 match a constant. A literal matches a constant if
 `abs(literal - constant) < DiffThreshold` evaluates to `true`. Default is `0.001`.
 ```
+
+(modernize-use-std-numbers-include-style)=
 
 ```{option} IncludeStyle
 A string specifying which include-style is used, `llvm` or `google`. Default is `llvm`.

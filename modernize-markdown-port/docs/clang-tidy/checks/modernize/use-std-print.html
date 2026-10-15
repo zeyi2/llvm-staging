@@ -300,7 +300,7 @@ now-unnecessary call removed in a similar manner to the
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">println</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"The {} is {:3}"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If the <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> or <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintlnFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> options
+<p>If the <a class="reference internal" href="#modernize-use-std-print-replacement-print-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> or <a class="reference internal" href="#modernize-use-std-print-replacement-println-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> options
 are left at or set to their default values then this check is only enabled
 with <code class="docutils literal notranslate"><span class="pre">-std=c++23</span></code> or later.</p>
 <p>Macros starting with <code class="docutils literal notranslate"><span class="pre">PRI</span></code> and <code class="docutils literal notranslate"><span class="pre">__PRI</span></code> from <code class="docutils literal notranslate"><span class="pre">&lt;inttypes.h&gt;</span></code> are
@@ -341,14 +341,14 @@ be left unchanged.</p>
 <p>If the call is deemed suitable for conversion then:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">printf</span></code>, <code class="docutils literal notranslate"><span class="pre">fprintf</span></code>, <code class="docutils literal notranslate"><span class="pre">absl::PrintF</span></code>, <code class="docutils literal notranslate"><span class="pre">absl::FPrintF</span></code> and any
-functions specified by the <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-PrintfLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">PrintfLikeFunctions</span></code></a> option or
-<a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-FprintfLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">FprintfLikeFunctions</span></code></a> are replaced with the function specified by the
-<a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintlnFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> option if the format string ends with <code class="docutils literal notranslate"><span class="pre">\n</span></code>
-or <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> otherwise.</p></li>
+functions specified by the <a class="reference internal" href="#modernize-use-std-print-printf-like-functions"><code class="docutils literal notranslate"><span class="pre">PrintfLikeFunctions</span></code></a> option or
+<a class="reference internal" href="#modernize-use-std-print-fprintf-like-functions"><code class="docutils literal notranslate"><span class="pre">FprintfLikeFunctions</span></code></a> are replaced with the function specified by the
+<a class="reference internal" href="#modernize-use-std-print-replacement-println-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> option if the format string ends with <code class="docutils literal notranslate"><span class="pre">\n</span></code>
+or <a class="reference internal" href="#modernize-use-std-print-replacement-print-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> otherwise.</p></li>
 <li><p>the format string is rewritten to use the <code class="docutils literal notranslate"><span class="pre">std::formatter</span></code> language. If
 a <code class="docutils literal notranslate"><span class="pre">\n</span></code> is found at the end of the format string not preceded by <code class="docutils literal notranslate"><span class="pre">r</span></code>
-then it is removed and <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintlnFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> is used rather than
-<a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a>.</p></li>
+then it is removed and <a class="reference internal" href="#modernize-use-std-print-replacement-println-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintlnFunction</span></code></a> is used rather than
+<a class="reference internal" href="#modernize-use-std-print-replacement-print-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a>.</p></li>
 <li><p>any arguments that corresponded to <code class="docutils literal notranslate"><span class="pre">%p</span></code> specifiers that
 <code class="docutils literal notranslate"><span class="pre">std::formatter</span></code> wouldn’t accept are wrapped in a <code class="docutils literal notranslate"><span class="pre">static_cast</span></code>
 to <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">void</span> <span class="pre">*</span></code>.</p></li>
@@ -356,23 +356,23 @@ to <code class="docutils literal notranslate"><span class="pre">const</span> <sp
 is of <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code> or <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code> type are wrapped in a
 <code class="docutils literal notranslate"><span class="pre">reinterpret_cast&lt;const</span> <span class="pre">char</span> <span class="pre">*&gt;</span></code>.</p></li>
 <li><p>any arguments where the format string and the parameter differ in
-signedness will be wrapped in an appropriate <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> if <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a>
+signedness will be wrapped in an appropriate <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> if <a class="reference internal" href="#modernize-use-std-print-strict-mode"><code class="docutils literal notranslate"><span class="pre">StrictMode</span></code></a>
 is enabled.</p></li>
 <li><p>any arguments that end in a call to <code class="docutils literal notranslate"><span class="pre">std::string::c_str()</span></code> or
 <code class="docutils literal notranslate"><span class="pre">std::string::data()</span></code> will have that call removed.</p></li>
 </ul>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-StrictMode">
-<span class="sig-name descname"><span class="pre">StrictMode</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-StrictMode" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-strict-mode">
+<dt class="sig sig-object std" id="cmdoption-arg-StrictMode">
+<span class="sig-name descname"><span class="pre">StrictMode</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-StrictMode" title="Link to this definition">¶</a></dt>
 <dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the check will add casts when converting from variadic
 functions like <code class="docutils literal notranslate"><span class="pre">printf</span></code> and printing signed or unsigned integer types
 (including fixed-width integer types from <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">ptrdiff_t</span></code>,
 <code class="docutils literal notranslate"><span class="pre">size_t</span></code> and <code class="docutils literal notranslate"><span class="pre">ssize_t</span></code>) as the opposite signedness to ensure that
 the output matches that of <code class="docutils literal notranslate"><span class="pre">printf</span></code>. This does not apply when
 converting from non-variadic functions such as <code class="docutils literal notranslate"><span class="pre">absl::PrintF</span></code> and
-<code class="docutils literal notranslate"><span class="pre">fmt::printf</span></code>. For example, with <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-StrictMode"><code class="xref std std-option docutils literal notranslate"><span class="pre">StrictMode</span></code></a> enabled:</p>
+<code class="docutils literal notranslate"><span class="pre">fmt::printf</span></code>. For example, with <a class="reference internal" href="#modernize-use-std-print-strict-mode"><code class="docutils literal notranslate"><span class="pre">StrictMode</span></code></a> enabled:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-42</span><span class="p">;</span>
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xffffffff</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%u %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
@@ -389,35 +389,35 @@ these casts will not be added which may cause a change in the output.
 Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-PrintfLikeFunctions">
-<span class="sig-name descname"><span class="pre">PrintfLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-PrintfLikeFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-printf-like-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-PrintfLikeFunctions">
+<span class="sig-name descname"><span class="pre">PrintfLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-PrintfLikeFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of regular expressions matching the
 (fully qualified) names of functions to replace, with the requirement
 that the first parameter contains the printf-style format string and the
 arguments to be formatted follow immediately afterwards. Qualified member
 function names are supported, but the replacement function name must be
-unqualified. If neither this option nor <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-FprintfLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">FprintfLikeFunctions</span></code></a> are set then
+unqualified. If neither this option nor <a class="reference internal" href="#modernize-use-std-print-fprintf-like-functions"><code class="docutils literal notranslate"><span class="pre">FprintfLikeFunctions</span></code></a> are set then
 the default value is <code class="docutils literal notranslate"><span class="pre">printf;</span> <span class="pre">absl::PrintF</span></code>, otherwise it is the empty
 string.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-FprintfLikeFunctions">
-<span class="sig-name descname"><span class="pre">FprintfLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-FprintfLikeFunctions" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-fprintf-like-functions">
+<dt class="sig sig-object std" id="cmdoption-arg-FprintfLikeFunctions">
+<span class="sig-name descname"><span class="pre">FprintfLikeFunctions</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-FprintfLikeFunctions" title="Link to this definition">¶</a></dt>
 <dd><p>A semicolon-separated list of regular expressions matching the
 (fully qualified) names of functions to replace, with the requirement
 that the first parameter is retained, the second parameter contains the
 printf-style format string and the arguments to be formatted follow
 immediately afterwards. Qualified member function names are supported,
 but the replacement function name must be unqualified. If neither this
-option nor <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-PrintfLikeFunctions"><code class="xref std std-option docutils literal notranslate"><span class="pre">PrintfLikeFunctions</span></code></a> are set then the default value is
+option nor <a class="reference internal" href="#modernize-use-std-print-printf-like-functions"><code class="docutils literal notranslate"><span class="pre">PrintfLikeFunctions</span></code></a> are set then the default value is
 <code class="docutils literal notranslate"><span class="pre">fprintf;absl::FPrintF</span></code>, otherwise it is the empty string.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction">
-<span class="sig-name descname"><span class="pre">ReplacementPrintFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-replacement-print-function">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementPrintFunction">
+<span class="sig-name descname"><span class="pre">ReplacementPrintFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementPrintFunction" title="Link to this definition">¶</a></dt>
 <dd><p>The function that will be used to replace <code class="docutils literal notranslate"><span class="pre">printf</span></code>, <code class="docutils literal notranslate"><span class="pre">fprintf</span></code> etc.
 during conversion rather than the default <code class="docutils literal notranslate"><span class="pre">std::print</span></code> when the
 original format string does not end with <code class="docutils literal notranslate"><span class="pre">\n</span></code>. It is expected that the
@@ -425,9 +425,9 @@ function provides an interface that is compatible with <code class="docutils lit
 suitable candidate would be <code class="docutils literal notranslate"><span class="pre">fmt::print</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-ReplacementPrintlnFunction">
-<span class="sig-name descname"><span class="pre">ReplacementPrintlnFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintlnFunction" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-replacement-println-function">
+<dt class="sig sig-object std" id="cmdoption-arg-ReplacementPrintlnFunction">
+<span class="sig-name descname"><span class="pre">ReplacementPrintlnFunction</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-ReplacementPrintlnFunction" title="Link to this definition">¶</a></dt>
 <dd><p>The function that will be used to replace <code class="docutils literal notranslate"><span class="pre">printf</span></code>, <code class="docutils literal notranslate"><span class="pre">fprintf</span></code> etc.
 during conversion rather than the default <code class="docutils literal notranslate"><span class="pre">std::println</span></code> when the
 original format string ends with <code class="docutils literal notranslate"><span class="pre">\n</span></code>. It is expected that the
@@ -435,12 +435,12 @@ function provides an interface that is compatible with <code class="docutils lit
 A suitable candidate would be <code class="docutils literal notranslate"><span class="pre">fmt::println</span></code>.</p>
 </dd></dl>
 
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-modernize-use-std-print-arg-PrintHeader">
-<span class="sig-name descname"><span class="pre">PrintHeader</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-modernize-use-std-print-arg-PrintHeader" title="Link to this definition">¶</a></dt>
+<dl class="std option" id="modernize-use-std-print-print-header">
+<dt class="sig sig-object std" id="cmdoption-arg-PrintHeader">
+<span class="sig-name descname"><span class="pre">PrintHeader</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-PrintHeader" title="Link to this definition">¶</a></dt>
 <dd><p>The header that must be included for the declaration of
-<a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> so that a <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive can be
-added if required. If <a class="reference internal" href="#cmdoption-modernize-use-std-print-arg-ReplacementPrintFunction"><code class="xref std std-option docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> is <code class="docutils literal notranslate"><span class="pre">std::print</span></code>
+<a class="reference internal" href="#modernize-use-std-print-replacement-print-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> so that a <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive can be
+added if required. If <a class="reference internal" href="#modernize-use-std-print-replacement-print-function"><code class="docutils literal notranslate"><span class="pre">ReplacementPrintFunction</span></code></a> is <code class="docutils literal notranslate"><span class="pre">std::print</span></code>
 then this option will default to <code class="docutils literal notranslate"><span class="pre">&lt;print&gt;</span></code>, otherwise this option will
 default to nothing and no <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive will be added.</p>
 </dd></dl>

@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-replace-disallow-copy-and-assign-macro
 ```
 
-```{program} modernize-replace-disallow-copy-and-assign-macro
-```
-
 # modernize-replace-disallow-copy-and-assign-macro
 
 Finds macro expansions of `DISALLOW_COPY_AND_ASSIGN(Type)` and replaces them
@@ -44,6 +41,8 @@ private:
   to get warnings for deleted functions in private sections.
 
 ## Options
+
+(modernize-replace-disallow-copy-and-assign-macro-macro-name)=
 
 ```{option} MacroName
 A string specifying the macro name whose expansion will be replaced.

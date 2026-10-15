@@ -1,9 +1,6 @@
 ```{title} clang-tidy - modernize-use-string-view
 ```
 
-```{program} modernize-use-string-view
-```
-
 # modernize-use-string-view
 
 Looks for functions returning `std::[w|u8|u16|u32]string` and suggests to
@@ -107,6 +104,8 @@ void bar() {
 
 ## Options
 
+(modernize-use-string-view-check-overloaded-functions)=
+
 ```{option} CheckOverloadedFunctions
 If `true`, the check will also consider overloaded functions for
 `string_view` conversion suggestions. If `false`, overloaded
@@ -115,6 +114,8 @@ conversions.
 
 Default is `false`.
 ```
+
+(modernize-use-string-view-ignored-functions)=
 
 ```{option} IgnoredFunctions
 A semicolon-separated list of the names of functions or methods to be
@@ -127,6 +128,8 @@ against only the type name (i.e. `Type`).
 
 Default is `toString$;ToString$;to_string$`.
 ```
+
+(modernize-use-string-view-replacement-string-view-class)=
 
 ```{option} ReplacementStringViewClass
 A semicolon-separated list of `string=string_view` pairs for replacing
