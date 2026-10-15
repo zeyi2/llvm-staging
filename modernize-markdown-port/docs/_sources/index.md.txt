@@ -1,0 +1,72 @@
+# Modernize Markdown port
+
+Forty check documents, in four batches of ten. Each batch is prepared for a
+rename PR followed by a Markdown conversion PR.
+
+## Batch 1
+
+```{toctree}
+:maxdepth: 1
+
+clang-tidy/checks/modernize/avoid-bind
+clang-tidy/checks/modernize/avoid-c-arrays
+clang-tidy/checks/modernize/avoid-c-style-cast
+clang-tidy/checks/modernize/concat-nested-namespaces
+clang-tidy/checks/modernize/deprecated-headers
+clang-tidy/checks/modernize/loop-convert
+clang-tidy/checks/modernize/macro-to-enum
+clang-tidy/checks/modernize/make-shared
+clang-tidy/checks/modernize/make-unique
+clang-tidy/checks/modernize/min-max-use-initializer-list
+```
+
+## Batch 2
+
+```{toctree}
+:maxdepth: 1
+
+clang-tidy/checks/modernize/pass-by-value
+clang-tidy/checks/modernize/raw-string-literal
+clang-tidy/checks/modernize/replace-auto-ptr
+clang-tidy/checks/modernize/replace-disallow-copy-and-assign-macro
+clang-tidy/checks/modernize/replace-random-shuffle
+clang-tidy/checks/modernize/type-traits
+clang-tidy/checks/modernize/use-auto
+clang-tidy/checks/modernize/use-constraints
+clang-tidy/checks/modernize/use-default-member-init
+clang-tidy/checks/modernize/use-designated-initializers
+```
+
+## Batch 3
+
+```{toctree}
+:maxdepth: 1
+
+clang-tidy/checks/modernize/use-emplace
+clang-tidy/checks/modernize/use-equals-default
+clang-tidy/checks/modernize/use-equals-delete
+clang-tidy/checks/modernize/use-integer-sign-comparison
+clang-tidy/checks/modernize/use-nodiscard
+clang-tidy/checks/modernize/use-noexcept
+clang-tidy/checks/modernize/use-nullptr
+clang-tidy/checks/modernize/use-override
+clang-tidy/checks/modernize/use-ranges
+clang-tidy/checks/modernize/use-scoped-lock
+```
+
+## Batch 4
+
+```{toctree}
+:maxdepth: 1
+
+clang-tidy/checks/modernize/use-std-bit
+clang-tidy/checks/modernize/use-std-format
+clang-tidy/checks/modernize/use-std-numbers
+clang-tidy/checks/modernize/use-std-print
+clang-tidy/checks/modernize/use-string-view
+clang-tidy/checks/modernize/use-structured-binding
+clang-tidy/checks/modernize/use-trailing-return-type
+clang-tidy/checks/modernize/use-transparent-functors
+clang-tidy/checks/modernize/use-uncaught-exceptions
+clang-tidy/checks/modernize/use-using
+```

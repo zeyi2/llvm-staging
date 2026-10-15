@@ -34,6 +34,11 @@ def build(
     if out.exists():
         shutil.rmtree(out)
     shutil.copytree(STATIC_DIR, out)
+    # Keep the standalone Sphinx previews at their established URLs alongside
+    # the generated CTIT results. Include their _static and _sources assets.
+    for preview in sorted(results_dir.glob("*-markdown-port")):
+        if preview.is_dir() and (preview / "index.html").is_file():
+            shutil.copytree(preview, out / preview.name)
     site = Site(out, repository, revision)
 
     groups: dict[str, list[Run]] = defaultdict(list)
