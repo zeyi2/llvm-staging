@@ -39,6 +39,9 @@ def build(
     for preview in sorted(results_dir.glob("*-markdown-port")):
         if preview.is_dir() and (preview / "index.html").is_file():
             shutil.copytree(preview, out / preview.name)
+    riscv = results_dir / "riscv"
+    if (riscv / "index.html").is_file():
+        shutil.copytree(riscv, out / "riscv")
     site = Site(out, repository, revision)
 
     groups: dict[str, list[Run]] = defaultdict(list)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RISC-V MC survey: TableGen data</title>
+<style>* { font-family: monospace; }
+body { margin: 8px; }
+table { border-spacing: .5em .1em; margin: 0 0 0 -.5em; }
+.wide { overflow-x: auto; }
+th { text-align: right; white-space: nowrap; vertical-align: bottom; }
+td { text-align: right; white-space: nowrap; }
+th.l, td.l { text-align: left; }
+td.msg { text-align: left; white-space: normal; min-width: 18em; max-width: 46em; }
+p { max-width: 60em; }
+pre { margin-left: 2em; white-space: pre-wrap; }
+.warning { font-weight: bold; background-color: rgba(255, 0, 0, 0.3); padding: .3em; margin: .5em 0; }
+.bad { font-weight: bold; background-color: rgba(255, 0, 0, 0.3); }
+.fp { color: #b00000; font-weight: bold; }
+.tp { color: #007000; }
+.dim { color: #777777; }
+.hint { display: block; max-width: 70em; }
+.key { display: inline-block; width: 1.2em; height: 2px; vertical-align: middle; margin-right: .4em; }
+.legend { max-width: 60em; line-height: 1.8; }
+.legend span.item { white-space: nowrap; margin-right: 1.5em; }
+th.sortable { cursor: pointer; }
+th.sortable:hover { text-decoration: underline; }
+#filter { width: min(36em, 100%); box-sizing: border-box; }
+.small, .small * { font-size: 11px; }
+svg.bar { vertical-align: middle; }
+.chart text { font-size: 10px; fill: #444; }
+.chip { display: inline-block; border: 1px solid #bbb; padding: 0 .3em; margin: 0 .2em .1em 0; font-size: 10px; line-height: 13px; color: #333; white-space: nowrap; }
+.bs { display: inline-block; position: relative; height: 13px; border: 1px solid #888; box-sizing: content-box; vertical-align: middle; }
+.bs span { position: absolute; top: 0; height: 13px; box-sizing: border-box; border-right: 1px solid #888; overflow: hidden; text-align: center; white-space: nowrap; font-size: 9px; line-height: 13px; }
+.bs span.last { border-right: 0; }
+.bs .F { background: #d8d8d8; color: #333; }
+.bs .v { background: #fff; color: #000; }
+.bs .ab { text-decoration: underline dotted #999; text-underline-offset: 1px; }
+table.hm { border-spacing: 1px; margin-left: 0; }
+table.hm td.h { text-align: center; min-width: 2.6em; font-size: 11px; padding: 0 .15em; }
+th.rot { height: 9em; white-space: nowrap; vertical-align: bottom; padding: 0; }
+th.rot > div { transform: translate(.9em, 0) rotate(-55deg); transform-origin: left bottom; width: 1.6em; font-weight: normal; font-size: 11px; text-align: left; }
+</style>
+<nav></nav>
+<hr />
+<div id="main"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="isel-data.js"></script>
+<script src="isel.js"></script>

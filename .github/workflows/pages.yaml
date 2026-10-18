@@ -8,6 +8,7 @@ on:
       - 'runs/**'
       - 'site/**'
       - '*-markdown-port/**'
+      - 'riscv/**'
       - '.github/workflows/pages.yaml'
   workflow_dispatch:
 
