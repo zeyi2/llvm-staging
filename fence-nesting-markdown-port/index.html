@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyST fence nesting comparison: modernize-use-auto options</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 60rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #222; }
+pre { background: #f6f8fa; border: 1px solid #ddd; padding: .75rem; overflow-x: auto; font-size: .85rem; line-height: 1.35; }
+code { background: #f6f8fa; padding: 0 .2em; }
+h2 { border-bottom: 1px solid #ddd; padding-bottom: .2rem; margin-top: 2.5rem; }
+</style></head><body>
+<h1>MyST fence nesting comparison: modernize-use-auto options</h1>
+<p>Both pages render the <code>MinTypeNameLength</code> and <code>RemoveStars</code> options from
+<code>clang-tools-extra/docs/clang-tidy/checks/modernize/use-auto.md</code> (llvm/llvm-project PR head <code>14370d30852fc7923f3bcca3421f9b898e3cc680</code>)
+with Sphinx and myst-parser (<code>colon_fence</code> and <code>substitution</code> enabled). In the current form, each
+<code>{option}</code> directive uses a 4-backtick fence around a nested 3-backtick <code>c++</code> block, so it renders as two
+option entries with their code examples. In the requested form, the directive uses 3 backticks and the code block uses 4.
+A closing fence only needs to be at least as long as the opening fence, so the inner closing <code>````</code> line closes the
+outer 3-backtick <code>{option}</code> fence early. The trailing <code>Default is ...</code> line then falls outside the option,
+and the leftover <code>```</code> opens a new code block that swallows the following option.</p>
+<ul>
+<li><a href="current-4-3.html">Current form (option fence 4 backticks, code fence 3)</a></li>
+<li><a href="requested-3-4.html">Requested form (option fence 3 backticks, code fence 4)</a></li>
+</ul>
+<h2>Current form: Markdown source</h2>
+<pre># modernize-use-auto
+
+Current form: 4-backtick option fence, 3-backtick code fence. Excerpt of `clang-tools-extra/docs/clang-tidy/checks/modernize/use-auto.md` at commit `d752eba`.
+
+## Options
+
+````{option} MinTypeNameLength
+If the option is set to non-zero, the check will ignore type
+names having a length less than the option value. The option affects
+expressions only, not iterators.
+Spaces between multi-lexeme type names (`long int`) are considered as one.
+If the {option}`RemoveStars` option (see below) is set to `true`, then `*s`
+in the type are also counted as a part of the type name.
+
+```c++
+// MinTypeNameLength = 0, RemoveStars=0
+
+int a = static_cast&lt;int&gt;(foo());            // ---&gt; auto a = ...
+// length(bool *) = 4
+bool *b = new bool;                         // ---&gt; auto *b = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());  // ---&gt; auto c = ...
+
+// MinTypeNameLength = 5, RemoveStars=0
+
+int a = static_cast&lt;int&gt;(foo());                 // ---&gt; int  a = ...
+bool b = static_cast&lt;bool&gt;(foo());               // ---&gt; bool b = ...
+bool *pb = static_cast&lt;bool*&gt;(foo());            // ---&gt; bool *pb = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());       // ---&gt; auto c = ...
+// length(long &lt;on-or-more-spaces&gt; int) = 8
+long int d = static_cast&lt;long int&gt;(foo());       // ---&gt; auto d = ...
+
+// MinTypeNameLength = 5, RemoveStars=1
+
+int a = static_cast&lt;int&gt;(foo());                 // ---&gt; int  a = ...
+// length(int * * ) = 5
+int **pa = static_cast&lt;int**&gt;(foo());            // ---&gt; auto pa = ...
+bool b = static_cast&lt;bool&gt;(foo());               // ---&gt; bool b = ...
+bool *pb = static_cast&lt;bool*&gt;(foo());            // ---&gt; auto pb = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());       // ---&gt; auto c = ...
+long int d = static_cast&lt;long int&gt;(foo());       // ---&gt; auto d = ...
+```
+Default is `5`.
+````
+
+````{option} RemoveStars
+If the option is set to `true`, the check will remove
+stars from the non-typedef pointer types when replacing type names with
+`auto`. Otherwise, the check will leave stars. For example:
+
+```c++
+TypeName *my_first_pointer = new TypeName, *my_second_pointer = new TypeName;
+
+// RemoveStars = 0
+
+auto *my_first_pointer = new TypeName, *my_second_pointer = new TypeName;
+
+// RemoveStars = 1
+
+auto my_first_pointer = new TypeName, my_second_pointer = new TypeName;
+```
+Default is `false`.
+````
+</pre>
+<p>Sphinx build warnings: none.</p>
+<h2>Requested form: Markdown source</h2>
+<pre># modernize-use-auto
+
+Requested form: 3-backtick option fence, 4-backtick code fence. Excerpt of `clang-tools-extra/docs/clang-tidy/checks/modernize/use-auto.md` at commit `bba8c51`.
+
+## Options
+
+```{option} MinTypeNameLength
+If the option is set to non-zero, the check will ignore type
+names having a length less than the option value. The option affects
+expressions only, not iterators.
+Spaces between multi-lexeme type names (`long int`) are considered as one.
+If the {option}`RemoveStars` option (see below) is set to `true`, then `*s`
+in the type are also counted as a part of the type name.
+
+````c++
+// MinTypeNameLength = 0, RemoveStars=0
+
+int a = static_cast&lt;int&gt;(foo());            // ---&gt; auto a = ...
+// length(bool *) = 4
+bool *b = new bool;                         // ---&gt; auto *b = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());  // ---&gt; auto c = ...
+
+// MinTypeNameLength = 5, RemoveStars=0
+
+int a = static_cast&lt;int&gt;(foo());                 // ---&gt; int  a = ...
+bool b = static_cast&lt;bool&gt;(foo());               // ---&gt; bool b = ...
+bool *pb = static_cast&lt;bool*&gt;(foo());            // ---&gt; bool *pb = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());       // ---&gt; auto c = ...
+// length(long &lt;on-or-more-spaces&gt; int) = 8
+long int d = static_cast&lt;long int&gt;(foo());       // ---&gt; auto d = ...
+
+// MinTypeNameLength = 5, RemoveStars=1
+
+int a = static_cast&lt;int&gt;(foo());                 // ---&gt; int  a = ...
+// length(int * * ) = 5
+int **pa = static_cast&lt;int**&gt;(foo());            // ---&gt; auto pa = ...
+bool b = static_cast&lt;bool&gt;(foo());               // ---&gt; bool b = ...
+bool *pb = static_cast&lt;bool*&gt;(foo());            // ---&gt; auto pb = ...
+unsigned c = static_cast&lt;unsigned&gt;(foo());       // ---&gt; auto c = ...
+long int d = static_cast&lt;long int&gt;(foo());       // ---&gt; auto d = ...
+````
+Default is `5`.
+```
+
+```{option} RemoveStars
+If the option is set to `true`, the check will remove
+stars from the non-typedef pointer types when replacing type names with
+`auto`. Otherwise, the check will leave stars. For example:
+
+````c++
+TypeName *my_first_pointer = new TypeName, *my_second_pointer = new TypeName;
+
+// RemoveStars = 0
+
+auto *my_first_pointer = new TypeName, *my_second_pointer = new TypeName;
+
+// RemoveStars = 1
+
+auto my_first_pointer = new TypeName, my_second_pointer = new TypeName;
+````
+Default is `false`.
+```
+</pre>
+<p>Sphinx build warnings:</p><pre>index.md:8: WARNING: unknown option: &#x27;RemoveStars&#x27; [ref.option]</pre>
+</body></html>
